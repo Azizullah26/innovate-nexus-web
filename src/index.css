@@ -18,12 +18,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 13%;
 
-    /* Brand Colors - Navy Blue Primary with Electric Blue Secondary */
-    --primary: 215 72% 16%;          /* Dark Navy Blue #0A1F44 */
+    /* Brand Colors - Electric Blue Primary with Sky Blue Secondary */
+    --primary: 218 100% 62%;         /* Electric Blue #3A86FF */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 215 72% 20%;
+    --primary-hover: 218 100% 70%;
 
-    --secondary: 218 100% 62%;       /* Electric Blue #3A86FF */
+    --secondary: 199 89% 58%;        /* Sky Blue #3ABEFF */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 17% 93%;            /* Light Silver Grey #ECEFF1 */
@@ -109,12 +109,12 @@
     --popover: 215 72% 12%;
     --popover-foreground: 0 0% 98%;
 
-    /* Brand Colors - Enhanced for Dark Mode */
-    --primary: 218 100% 65%;         /* Brighter Electric Blue */
+    /* Brand Colors - Enhanced Electric Blue for Dark Mode */
+    --primary: 218 100% 70%;         /* Brighter Electric Blue */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 218 100% 70%;
+    --primary-hover: 218 100% 75%;
 
-    --secondary: 198 16% 20%;        /* Dark Silver */
+    --secondary: 199 89% 65%;        /* Brighter Sky Blue */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 215 72% 15%;
