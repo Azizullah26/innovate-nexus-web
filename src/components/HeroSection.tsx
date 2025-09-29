@@ -26,7 +26,7 @@ const HeroSection = () => {
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-balance">
             Transform Your Vision Into
-            <span className="gradient-text block text-green-700">Digital Reality</span>
+            <span className="gradient-text block text-green-600">Digital Reality</span>
           </h1>
 
           {/* Subheading */}
