@@ -2,20 +2,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-background.jpg";
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div className="absolute inset-0 z-0" style={{
+      backgroundImage: `url(${heroImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 hero-gradient" />
       </div>
@@ -31,7 +26,7 @@ const HeroSection = () => {
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-balance">
             Transform Your Vision Into
-            <span className="gradient-text block">Digital Reality</span>
+            <span className="gradient-text block text-green-700">Digital Reality</span>
           </h1>
 
           {/* Subheading */}
@@ -79,8 +74,6 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
