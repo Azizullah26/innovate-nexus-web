@@ -7,7 +7,9 @@ import {
   Users, 
   Smartphone, 
   Database,
-  ArrowRight
+  ArrowRight,
+  Bot,
+  Zap
 } from "lucide-react";
 
 const ServicesSection = () => {
@@ -23,6 +25,18 @@ const ServicesSection = () => {
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications that engage users and drive business growth across iOS and Android platforms.",
       features: ["React Native", "iOS Development", "Android Development", "App Store Optimization"]
+    },
+    {
+      icon: Bot,
+      title: "AI Chatbot",
+      description: "Intelligent conversational AI powered by advanced language models to provide 24/7 customer support, engage users, and automate interactions.",
+      features: ["Natural Language Processing", "Multi-language Support", "Context-Aware Responses", "Seamless Integration"]
+    },
+    {
+      icon: Zap,
+      title: "AI Automation",
+      description: "AI automation is the use of artificial intelligence technologies to perform tasks without human intervention, streamlining workflows and boosting efficiency.",
+      features: ["Workflow Automation", "Process Optimization", "Intelligent Decision Making", "Task Scheduling"]
     },
     {
       icon: Brain,
