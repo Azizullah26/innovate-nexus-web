@@ -6,52 +6,49 @@ import { ExternalLink, Github } from "lucide-react";
 const PortfolioSection = () => {
   const projects = [
     {
-      title: "AI-Powered E-Commerce Platform",
-      description: "Full-stack e-commerce solution with AI-driven product recommendations, real-time inventory management, and advanced analytics dashboard.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-      tags: ["React", "Node.js", "AI/ML", "PostgreSQL", "Stripe"],
+      title: "Ronin - Gaming Audio E-Commerce",
+      description: "Advanced e-commerce platform for premium gaming earbuds featuring software-based audio technology with ultra-low latency for gamers.",
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+      tags: ["Shopify", "React", "E-Commerce", "Payment Integration"],
       category: "E-Commerce",
-      results: "+150% conversion rate, $2M+ in sales"
+      results: "Premium gaming audio brand in Pakistan",
+      liveUrl: "https://ronin.pk/"
     },
     {
-      title: "FinTech Mobile Banking App",
-      description: "Secure mobile banking application with biometric authentication, real-time transactions, and comprehensive financial analytics.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80",
-      tags: ["React Native", "TypeScript", "AWS", "Blockchain"],
-      category: "FinTech",
-      results: "500K+ active users, 99.9% uptime"
+      title: "Misk Foundation",
+      description: "Digital platform for Mohammed Bin Salman Foundation, empowering and connecting young leaders, innovators, and entrepreneurs globally.",
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      tags: ["Next.js", "CMS", "Multilingual", "Enterprise"],
+      category: "Non-Profit",
+      results: "Empowering youth across Saudi Arabia",
+      liveUrl: "https://misk.org.sa/en/"
     },
     {
-      title: "Healthcare SaaS Platform",
-      description: "Comprehensive healthcare management system with patient portals, telemedicine capabilities, and HIPAA-compliant data handling.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80",
-      tags: ["Next.js", "Python", "Docker", "Azure", "FHIR"],
-      category: "Healthcare",
-      results: "10+ hospitals, 50K+ patients served"
+      title: "El Race Contracting",
+      description: "Modern construction company website showcasing projects, services, and career opportunities for a leading UAE-based contractor.",
+      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+      tags: ["React", "CMS", "Portfolio", "Responsive Design"],
+      category: "Construction",
+      results: "Building the future in UAE",
+      liveUrl: "https://elrace.com/"
     },
     {
-      title: "Smart Manufacturing IoT",
-      description: "Industrial IoT solution for manufacturing optimization with real-time monitoring, predictive maintenance, and automated reporting.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-      tags: ["React", "Python", "IoT", "Machine Learning", "MongoDB"],
-      category: "IoT",
-      results: "40% efficiency increase, $5M cost savings"
+      title: "Saleh Sallom Jewelry",
+      description: "Premium luxury jewelry e-commerce platform featuring natural diamonds, lab-grown diamonds, and customized jewelry with secure shopping experience.",
+      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+      tags: ["Shopify", "E-Commerce", "Luxury", "Payment Gateway"],
+      category: "E-Commerce",
+      results: "Certified premium jewelry marketplace",
+      liveUrl: "https://www.salehsallom.com/"
     },
     {
-      title: "EdTech Learning Management",
-      description: "Comprehensive learning platform with video streaming, interactive content, progress tracking, and AI-powered personalization.",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80",
-      tags: ["Vue.js", "Laravel", "WebRTC", "Redis", "Elasticsearch"],
-      category: "Education",
-      results: "100K+ students, 95% completion rate"
-    },
-    {
-      title: "Real Estate Marketplace",
-      description: "Modern property marketplace with virtual tours, AI-powered matching, integrated CRM, and comprehensive analytics dashboard.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
-      tags: ["React", "GraphQL", "Prisma", "Mapbox", "Stripe"],
-      category: "Real Estate",
-      results: "$100M+ in listings, 80% faster sales"
+      title: "El Race Operations App",
+      description: "Mobile operations management application for El Race Contracting, streamlining construction project management and field operations.",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "Mobile App", "Operations", "Project Management"],
+      category: "Mobile App",
+      results: "10+ downloads, efficient operations",
+      liveUrl: "https://play.google.com/store/apps/details?id=com.el_race.app&hl=en"
     }
   ];
 
@@ -85,11 +82,10 @@ const PortfolioSection = () => {
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-3">
-                    <Button size="sm" variant="glass">
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                    <Button size="sm" variant="glass">
-                      <Github className="h-4 w-4" />
+                <Button size="sm" variant="glass" asChild>
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -126,9 +122,11 @@ const PortfolioSection = () => {
                   </p>
                 </div>
 
-                <Button variant="outline" className="w-full group">
-                  View Case Study
-                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button variant="outline" className="w-full group" asChild>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    View Live Site
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>
