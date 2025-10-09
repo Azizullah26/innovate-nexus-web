@@ -17,7 +17,7 @@ const PortfolioSection = () => {
     {
       title: "Misk Foundation",
       description: "Digital platform for Mohammed Bin Salman Foundation, empowering and connecting young leaders, innovators, and entrepreneurs globally.",
-      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      image: "https://misk.org.sa/wp-content/uploads/2025/04/news28.jpg",
       tags: ["Next.js", "CMS", "Multilingual", "Enterprise"],
       category: "Non-Profit",
       results: "Empowering youth across Saudi Arabia",

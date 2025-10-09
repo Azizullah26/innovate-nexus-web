@@ -44,7 +44,7 @@ const Portfolio = () => {
       title: "Misk Foundation",
       description: "Digital platform for Mohammed Bin Salman Foundation, empowering young leaders, innovators, and entrepreneurs globally.",
       longDescription: "Created a comprehensive digital platform for Misk Foundation, one of Saudi Arabia's leading non-profit organizations. The platform showcases various initiatives including the Misk Global Forum, ilmi science initiative, and numerous youth empowerment programs. Features include multilingual support (Arabic/English), event management, program showcases, and a media center for news and updates.",
-      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+      image: "https://misk.org.sa/wp-content/uploads/2025/04/news28.jpg",
       tags: ["Next.js", "CMS", "Multilingual", "Enterprise", "Responsive Design"],
       category: "nonprofit",
       client: "Misk Foundation",
