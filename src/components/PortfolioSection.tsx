@@ -49,6 +49,33 @@ const PortfolioSection = () => {
       category: "Mobile App",
       results: "10+ downloads, efficient operations",
       liveUrl: "https://play.google.com/store/apps/details?id=com.el_race.app&hl=en"
+    },
+    {
+      title: "Story Hero - AI Bedtime Stories",
+      description: "AI-powered mobile app that creates completely unique, personalized bedtime stories with custom characters, genres, and beautiful illustrations.",
+      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "AI", "Mobile App", "Image Generation"],
+      category: "Mobile App",
+      results: "Magical storytelling experiences",
+      liveUrl: "https://storyhero.site/"
+    },
+    {
+      title: "SmartHair - AI Hair Analysis",
+      description: "AI-powered hair care app that analyzes your hair from a photo and creates personalized routines based on your unique hair type, porosity, and lifestyle.",
+      image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "AI", "Mobile App", "Computer Vision"],
+      category: "Mobile App",
+      results: "4.8 rating, personalized hair care",
+      liveUrl: "https://trysmarthair.com/"
+    },
+    {
+      title: "EchoMood - AI Journaling",
+      description: "Emotional journaling app with AI-generated personalized responses, text-to-speech playback, and multiple AI personas for deeper self-awareness.",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "AI", "Mobile App", "Text-to-Speech"],
+      category: "Mobile App",
+      results: "Premium AI journaling experience",
+      liveUrl: "https://echomood.app/"
     }
   ];
 

@@ -158,6 +158,96 @@ const Portfolio = () => {
       githubUrl: "https://github.com",
       testimonial: "Efficient construction operations management at your fingertips.",
       rating: 5
+    },
+    {
+      id: 6,
+      title: "Story Hero - AI Bedtime Stories",
+      description: "AI-powered mobile app creating completely unique, personalized bedtime stories with custom characters and beautiful illustrations.",
+      longDescription: "Developed Story Hero, an innovative AI-powered mobile application that transforms bedtime storytelling. The app allows parents to create completely unique, one-of-a-kind stories in minutes featuring custom characters with unique personalities, appearances, and traits. Users can choose from any genre - pirates, mysteries, space adventures, or create custom themes. The app uses the highest quality AI image generation technology to create stunning, consistent artwork for every story, making each tale truly magical and memorable.",
+      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "AI", "Mobile App", "Image Generation", "Text Generation"],
+      category: "mobile",
+      client: "Happii Apps",
+      duration: "5 months",
+      teamSize: "5 developers",
+      results: [
+        "Available on iOS & Android",
+        "AI-generated illustrations",
+        "Custom character creation",
+        "Unlimited story genres"
+      ],
+      features: [
+        "Custom character creation",
+        "AI story generation",
+        "Beautiful AI illustrations",
+        "Multiple genre options",
+        "Personalized storytelling",
+        "Cross-platform support"
+      ],
+      liveUrl: "https://storyhero.site/",
+      githubUrl: "https://github.com",
+      testimonial: "Creating magical bedtime stories with AI that bring imagination to life.",
+      rating: 5
+    },
+    {
+      id: 7,
+      title: "SmartHair - AI Hair Analysis",
+      description: "AI-powered hair care app that analyzes hair from photos and creates personalized routines based on unique hair type and lifestyle.",
+      longDescription: "Built SmartHair, an innovative AI-powered mobile application that revolutionizes personal hair care. The app analyzes your hair type, texture, and condition from a single photo to create a personalized hair blueprint. Using advanced computer vision and AI, it identifies hair classification, moisture retention, strand density, and porosity. Users receive customized daily and weekly routines that fit their lifestyle and hair goals, eliminating the need for lengthy questionnaires. With a 4.8 rating from early users, SmartHair makes professional hair analysis accessible to everyone.",
+      image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "AI", "Mobile App", "Computer Vision", "Personalization"],
+      category: "mobile",
+      client: "SmartHair",
+      duration: "6 months",
+      teamSize: "6 developers",
+      results: [
+        "4.8 rating from users",
+        "AI photo analysis",
+        "Personalized routines",
+        "7-day free trial"
+      ],
+      features: [
+        "AI hair photo analysis",
+        "Hair type identification",
+        "Porosity detection",
+        "Personalized routines",
+        "Product recommendations",
+        "Lifestyle-based customization"
+      ],
+      liveUrl: "https://trysmarthair.com/",
+      githubUrl: "https://github.com",
+      testimonial: "Science-backed personalized hair care powered by AI photo analysis.",
+      rating: 5
+    },
+    {
+      id: 8,
+      title: "EchoMood - AI Journaling",
+      description: "Emotional journaling app with AI-generated personalized responses, text-to-speech playback, and multiple AI personas.",
+      longDescription: "Created EchoMood, a transformative emotional journaling application that uses AI to provide personalized echo responses to journal entries. The app features multiple AI personas with distinct communication styles, allowing users to receive tailored insights that match their emotional patterns. Powered by ElevenLabs text-to-speech technology, users can listen to their personalized insights with high-quality audio. The app includes a flexible credit-based system, comprehensive journal management, and both free and premium AI personas, making emotional intelligence accessible and engaging.",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+      tags: ["React Native", "AI", "Mobile App", "Text-to-Speech", "NLP"],
+      category: "mobile",
+      client: "EchoMood",
+      duration: "5 months",
+      teamSize: "5 developers",
+      results: [
+        "AI-powered insights",
+        "Multiple AI personas",
+        "Voice feedback feature",
+        "Premium experience"
+      ],
+      features: [
+        "Emotional journaling",
+        "AI echo responses",
+        "Text-to-speech playback",
+        "Multiple AI personas",
+        "Credit-based system",
+        "Journal management"
+      ],
+      liveUrl: "https://echomood.app/",
+      githubUrl: "https://github.com",
+      testimonial: "Your voice, your vibe - echoed back with care through AI intelligence.",
+      rating: 5
     }
   ];
 
