@@ -9,7 +9,10 @@ import {
   Database,
   ArrowRight,
   Bot,
-  Zap
+  Zap,
+  Megaphone,
+  TrendingUp,
+  Globe
 } from "lucide-react";
 
 const ServicesSection = () => {
@@ -61,6 +64,24 @@ const ServicesSection = () => {
       title: "Digital Consulting",
       description: "Strategic technology consulting to help you navigate digital transformation and optimize your technology stack for maximum ROI.",
       features: ["Tech Strategy", "Digital Transformation", "Performance Optimization", "Security Audits"]
+    },
+    {
+      icon: Megaphone,
+      title: "Social Media Advertising",
+      description: "Comprehensive digital advertising campaigns across TikTok, Instagram, Google Ads, and YouTube to maximize your reach and ROI.",
+      features: ["TikTok Ads", "Instagram Marketing", "Google Ads", "YouTube Campaigns"]
+    },
+    {
+      icon: TrendingUp,
+      title: "Brand Development for Startups",
+      description: "Complete brand identity and marketing strategy for startups, from concept to market launch, building a strong foundation for growth.",
+      features: ["Brand Strategy", "Logo & Identity Design", "Market Positioning", "Launch Campaigns"]
+    },
+    {
+      icon: Globe,
+      title: "Global Advertising Campaigns",
+      description: "Multi-platform international advertising campaigns that expand your brand presence across global markets with localized strategies.",
+      features: ["International SEO", "Multi-region Campaigns", "Localization", "Performance Analytics"]
     }
   ];
 
