@@ -60,7 +60,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "+971509363002",
       description: "Mon-Fri from 8am to 5pm"
     },
     {
