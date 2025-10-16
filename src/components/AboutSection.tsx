@@ -29,16 +29,16 @@ const AboutSection = () => {
 
   const team = [
     {
-      name: "Alex Chen",
+      name: "Aziz Ullah",
       role: "Founder & CTO",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
       expertise: ["Full-stack Development", "AI/ML", "System Architecture"]
     },
     {
-      name: "Sarah Johnson",
-      role: "Lead Frontend Developer",
+      name: "Muhammad Jawad",
+      role: "Odoo Developer ERP",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=300&q=80",
-      expertise: ["React/Next.js", "UI/UX Design", "Mobile Development"]
+      expertise: ["Odoo ERP", "Python", "Business Solutions"]
     },
     {
       name: "Michael Rodriguez",
