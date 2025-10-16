@@ -66,7 +66,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "San Francisco, CA",
+      details: "Dubai UAE",
       description: "Come say hello at our office"
     },
     {
