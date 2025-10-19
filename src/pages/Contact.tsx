@@ -67,14 +67,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
-      description: "Mon-Fri from 8am to 6pm PST",
+      details: "+971509363002",
+      description: "Mon-Fri from 8am to 6pm GST",
       gradient: "secondary-gradient"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "San Francisco, CA",
+      details: "Dubai",
       description: "Come say hello at our office",
       gradient: "electric-gradient"
     },
