@@ -290,6 +290,10 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  .pause-animation {
+    animation-play-state: paused;
+  }
 }
 
 /* Keyframes */
