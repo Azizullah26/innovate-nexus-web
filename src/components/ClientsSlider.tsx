@@ -42,7 +42,7 @@ const ClientsSlider = () => {
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                className="max-w-full max-h-full object-contain grayscale brightness-0 invert-[0.5] hover:grayscale-0 hover:brightness-100 hover:invert-0 transition-all duration-500 opacity-60 hover:opacity-100"
               />
             </div>
           ))}
@@ -55,7 +55,7 @@ const ClientsSlider = () => {
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                className="max-w-full max-h-full object-contain grayscale brightness-0 invert-[0.5] hover:grayscale-0 hover:brightness-100 hover:invert-0 transition-all duration-500 opacity-60 hover:opacity-100"
               />
             </div>
           ))}
