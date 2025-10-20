@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import azmaLogo from "@/assets/azma-tech-logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,11 +62,8 @@ const Navigation = () => {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <span className="text-xl font-bold gradient-text">AZMA TECH</span>
+          <Link to="/" className="flex items-center">
+            <img src={azmaLogo} alt="AZMA TECH" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
