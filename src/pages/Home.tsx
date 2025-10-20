@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ClientsSlider from "@/components/ClientsSlider";
 import PricingSection from "@/components/PricingSection";
 import ClientReviewsSection from "@/components/ClientReviewsSection";
 import AboutSection from "@/components/AboutSection";
@@ -15,6 +16,7 @@ const Home = () => {
         <HeroSection />
         <ServicesSection />
         <PortfolioSection />
+        <ClientsSlider />
         <PricingSection />
         <ClientReviewsSection />
         <AboutSection />
