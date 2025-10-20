@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Users, Award, Target, Zap } from "lucide-react";
+import { Users, Award, Target, Zap, User } from "lucide-react";
+import azizPhoto from "@/assets/aziz-photo.jpg";
 
 const AboutSection = () => {
   const values = [
@@ -31,26 +32,30 @@ const AboutSection = () => {
     {
       name: "Aziz Ullah",
       role: "Founder & CTO",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-      expertise: ["Full-stack Development", "AI/ML", "System Architecture"]
+      image: azizPhoto,
+      expertise: ["Full-stack Development", "AI/ML", "System Architecture"],
+      useIcon: false
     },
     {
       name: "Muhammad Jawad",
       role: "Odoo Developer ERP",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=300&q=80",
-      expertise: ["Odoo ERP", "Python", "Business Solutions"]
+      expertise: ["Odoo ERP", "Python", "Business Solutions"],
+      useIcon: true,
+      gender: "male"
     },
     {
       name: "Michael Rodriguez",
       role: "DevOps Engineer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
-      expertise: ["Cloud Infrastructure", "Docker/K8s", "CI/CD"]
+      expertise: ["Cloud Infrastructure", "Docker/K8s", "CI/CD"],
+      useIcon: true,
+      gender: "male"
     },
     {
       name: "Emily Park",
       role: "AI Specialist",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80",
-      expertise: ["Machine Learning", "Data Science", "Python/TensorFlow"]
+      expertise: ["Machine Learning", "Data Science", "Python/TensorFlow"],
+      useIcon: true,
+      gender: "female"
     }
   ];
 
@@ -141,11 +146,17 @@ const AboutSection = () => {
               <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 animate-scale-on-hover border-0 shadow-lg">
                 <CardContent className="p-6">
                   <div className="relative mb-4">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-20 h-20 rounded-full mx-auto object-cover border-4 border-primary/20 group-hover:border-primary/40 transition-colors duration-300"
-                    />
+                    {member.useIcon ? (
+                      <div className="w-20 h-20 rounded-full mx-auto flex items-center justify-center border-4 border-primary/20 group-hover:border-primary/40 transition-colors duration-300 primary-gradient">
+                        <User className="w-10 h-10 text-white" />
+                      </div>
+                    ) : (
+                      <img 
+                        src={member.image}
+                        alt={member.name}
+                        className="w-20 h-20 rounded-full mx-auto object-cover border-4 border-primary/20 group-hover:border-primary/40 transition-colors duration-300"
+                      />
+                    )}
                   </div>
                   <h4 className="text-lg font-semibold text-foreground mb-1">{member.name}</h4>
                   <p className="text-primary font-medium text-sm mb-3">{member.role}</p>
