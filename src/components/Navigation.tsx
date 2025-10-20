@@ -63,9 +63,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
+              <span className="text-white font-bold text-lg">A</span>
             </div>
-            <span className="text-xl font-bold gradient-text">TechFlow</span>
+            <span className="text-xl font-bold gradient-text">AZMA TECH</span>
           </Link>
 
           {/* Desktop Navigation */}
