@@ -7,6 +7,7 @@ import PricingSection from "@/components/PricingSection";
 import ClientReviewsSection from "@/components/ClientReviewsSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import azmaLogo from "@/assets/azma-tech-logo.png";
 
 const Home = () => {
   return (
@@ -27,14 +28,11 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">T</span>
-                </div>
-                <span className="text-xl font-bold text-background">TechFlow</span>
+                <img src={azmaLogo} alt="AZMA TECH" className="h-12 w-auto" />
               </div>
               <p className="text-background/80 mb-4 max-w-md">
-                Building the future with fullstack development, AI integration, and 
-                cutting-edge digital solutions that drive business growth.
+                AZMA TECH specializes in AI solutions, automation, full-stack software development, 
+                and intelligent digital transformation that accelerates business innovation.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-background/60 hover:text-background transition-colors">LinkedIn</a>
@@ -62,7 +60,7 @@ const Home = () => {
             </div>
           </div>
           <div className="border-t border-background/20 mt-8 pt-8 text-center text-background/60 text-sm">
-            <p>&copy; 2024 TechFlow. All rights reserved.</p>
+            <p>&copy; 2024 AZMA TECH. All rights reserved.</p>
           </div>
         </div>
       </footer>
