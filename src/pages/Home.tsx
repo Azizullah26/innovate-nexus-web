@@ -28,7 +28,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <img src={azmaLogo} alt="AZMA TECH" className="h-12 w-auto" />
+                <img src={azmaLogo} alt="AZMA TECH" className="h-12 w-auto bg-blue-50 p-2 rounded-lg" />
               </div>
               <p className="text-background/80 mb-4 max-w-md">
                 AZMA TECH specializes in AI solutions, automation, full-stack software development, 
