@@ -63,7 +63,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={azmaLogo} alt="AZMA TECH" className="h-20 w-auto bg-gradient-to-r from-primary/10 to-white/20 backdrop-blur-sm px-4 py-2 rounded-lg" />
+            <img src={azmaLogo} alt="AZMA TECH" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
