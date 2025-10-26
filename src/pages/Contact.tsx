@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
   Send,
   MessageSquare,
   Calendar,
@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import azmaLogo from "@/assets/azma-tech-logo.png";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -60,7 +61,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@techflow.dev",
+      details: "hello@azmatech.dev",
       description: "Drop us a line anytime",
       gradient: "primary-gradient"
     },
@@ -370,10 +371,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">T</span>
-                </div>
-                <span className="text-xl font-bold text-background">TechFlow</span>
+                <img src={azmaLogo} alt="AZMA TECH" className="h-10 w-auto" />
               </div>
               <p className="text-background/80 mb-4 max-w-md">
                 Building the future with fullstack development, AI integration, and 
@@ -405,7 +403,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="border-t border-background/20 mt-8 pt-8 text-center text-background/60 text-sm">
-            <p>&copy; 2024 TechFlow. All rights reserved.</p>
+            <p>&copy; 2024 Azma Tech. All rights reserved.</p>
           </div>
         </div>
       </footer>
