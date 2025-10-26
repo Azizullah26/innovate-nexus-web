@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Tech Startup Design System - Navy, Electric Blue & Silver Gradients */
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --card-hover: 198 16% 96%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    /* Brand Colors - Electric Blue Primary with Sky Blue Secondary */
+    --primary: 218 100% 62%; /* Electric Blue #3A86FF */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 218 100% 70%;
+
+    --secondary: 199 89% 58%; /* Sky Blue #3ABEFF */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 17% 93%; /* Light Silver Grey #ECEFF1 */
+    --muted-foreground: 198 16% 45%;
+
+    --accent: 198 16% 73%; /* Silver Grey #B0BEC5 */
+    --accent-foreground: 0 0% 13%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 198 16% 88%;
+    --input: 198 16% 88%;
+    --ring: 218 100% 62%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Core Colors */
+    --background: 215 72% 8%; /* Very Dark Navy */
+    --foreground: 0 0% 98%;
+
+    /* Cards & Surfaces */
+    --card: 215 72% 12%; /* Dark Navy Cards */
+    --card-foreground: 0 0% 98%;
+    --card-hover: 215 72% 16%;
+
+    --popover: 215 72% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Brand Colors - Enhanced Electric Blue for Dark Mode */
+    --primary: 218 100% 70%; /* Brighter Electric Blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 218 100% 75%;
+
+    --secondary: 199 89% 65%; /* Brighter Sky Blue */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 215 72% 15%;
+    --muted-foreground: 198 16% 70%;
+
+    --accent: 198 16% 60%; /* Medium Silver for Dark Mode */
+    --accent-foreground: 0 0% 98%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 215 72% 18%;
+    --input: 215 72% 18%;
+    --ring: 218 100% 65%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Modern Tech Gradient Components */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(215 72% 16% / 0.05), hsl(218 100% 62% / 0.1));
+  }
+
+  .primary-gradient {
+    background: linear-gradient(135deg, hsl(215 72% 16%), hsl(218 100% 62%));
+  }
+
+  .secondary-gradient {
+    background: linear-gradient(135deg, hsl(218 100% 62%), hsl(198 16% 73%));
+  }
+
+  .silver-gradient {
+    background: linear-gradient(135deg, hsl(198 16% 73%), hsl(210 17% 93%));
+  }
+
+  .electric-gradient {
+    background: linear-gradient(135deg, hsl(218 100% 62%), hsl(218 100% 70%));
+  }
+
+  .dark-gradient {
+    background: linear-gradient(135deg, hsl(215 72% 16%), hsl(0 0% 13%));
+  }
+
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-scale-on-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-scale-on-hover:hover {
+    transform: scale(1.05);
+  }
+
+  .animate-infinite-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  /* Modern Glow Effects */
+  .glow-on-hover:hover {
+    box-shadow: 0 0 40px hsl(218 100% 62% / 0.2);
+  }
+
+  .electric-glow:hover {
+    box-shadow: 0 0 30px hsl(218 100% 62% / 0.3);
+  }
+
+  .silver-shine:hover {
+    box-shadow: 0 0 20px hsl(198 16% 73% / 0.4);
+  }
+
+  /* Liquid Glass Effects */
+  .liquid-glass {
+    background: linear-gradient(135deg, hsl(215 72% 16% / 0.4), hsl(218 100% 62% / 0.3), hsl(198 16% 73% / 0.2));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(218 100% 62% / 0.3), transparent);
+    transition: left 0.8s ease;
+    animation: liquid-flow 3s infinite;
+  }
+
+  .liquid-glass:hover::before {
+    left: 100%;
+  }
+
+  .liquid-glass:hover {
+    box-shadow: 0 0 40px hsl(218 100% 62% / 0.4), 0 0 80px hsl(215 72% 16% / 0.2), inset 0 0 40px hsl(198 16% 73% / 0.1);
+    transform: translateY(-2px);
+  }
+
+  @keyframes liquid-flow {
+    0%,
+    100% {
+      transform: translateX(-100%) rotate(45deg);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(0%) rotate(45deg);
+      opacity: 1;
+    }
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(215 72% 16%), hsl(218 100% 62%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .pause-animation {
+    animation-play-state: paused;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
