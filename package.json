@@ -56,7 +56,7 @@
     "path": "latest",
     "react": "^18.3.1",
     "react-day-picker": "latest",
-    "react-dom": "latest",
+    "react-dom": "^18.3.1",
     "react-hook-form": "latest",
     "react-resizable-panels": "latest",
     "react-router-dom": "latest",
