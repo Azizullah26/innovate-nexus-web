@@ -111,23 +111,23 @@ const Blog = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 hero-gradient">
+        <section className="py-12 sm:py-16 md:py-20 hero-gradient">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-4xl mx-auto animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 px-2">
                 Tech Insights & <span className="gradient-text">Innovation</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Stay ahead of the curve with our latest insights on AI, fullstack development, 
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+                Stay ahead of the curve with our latest insights on AI, fullstack development,
                 and digital transformation strategies.
               </p>
-              
+
               {/* Search Bar */}
-              <div className="relative max-w-md mx-auto">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-                <Input 
+              <div className="relative max-w-md mx-auto px-4">
+                <Search className="absolute left-7 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4 sm:h-5 sm:w-5" />
+                <Input
                   placeholder="Search articles..."
-                  className="pl-10 pr-4 py-3 text-lg border-2 focus:border-secondary"
+                  className="pl-9 sm:pl-10 pr-4 py-2 sm:py-3 text-base sm:text-lg border-2 focus:border-secondary"
                 />
               </div>
             </div>

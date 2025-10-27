@@ -59,20 +59,20 @@ const Navigation = () => {
           : "bg-transparent"
       )}
     >
-      <nav className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <nav className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={azmaLogo} alt="AZMA TECH" className="h-12 w-auto" />
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img src={azmaLogo} alt="AZMA TECH" className="h-8 sm:h-10 md:h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <NavLinks />
           </div>
 
           {/* Desktop CTA Button */}
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <Button variant="hero" size="sm" asChild>
               <Link to="/contact">Get Started</Link>
             </Button>
@@ -80,12 +80,12 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
+            <SheetTrigger asChild className="lg:hidden">
+              <Button variant="ghost" size="icon" className="h-9 w-9 sm:h-10 sm:w-10">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
+            <SheetContent side="right" className="w-[280px] sm:w-[320px]">
               <div className="flex flex-col space-y-4 mt-8">
                 <NavLinks mobile onClick={() => setIsOpen(false)} />
                 <div className="pt-4">

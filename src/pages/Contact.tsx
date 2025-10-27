@@ -124,28 +124,28 @@ const Contact = () => {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-20 hero-gradient">
+        <section className="py-12 sm:py-16 md:py-20 hero-gradient">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center max-w-4xl mx-auto animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 px-2">
                 Let's Build Something <span className="gradient-text">Extraordinary</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Ready to transform your vision into reality? Connect with our expert team and 
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+                Ready to transform your vision into reality? Connect with our expert team and
                 discover how we can accelerate your digital transformation journey.
               </p>
-              
+
               {/* Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
                 {stats.map((stat, index) => {
                   const IconComponent = stat.icon;
                   return (
                     <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                      <div className="w-12 h-12 primary-gradient rounded-lg flex items-center justify-center mx-auto mb-3">
-                        <IconComponent className="h-6 w-6 text-white" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 primary-gradient rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                        <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                      <div className="text-muted-foreground">{stat.label}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-foreground">{stat.value}</div>
+                      <div className="text-sm sm:text-base text-muted-foreground">{stat.label}</div>
                     </div>
                   );
                 })}
