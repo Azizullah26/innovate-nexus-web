@@ -19,15 +19,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 hero-gradient" />
       </div>
 
-      {/* Badge - Below Navigation (30px from bottom of nav) */}
-      <div className="absolute top-[94px] sm:top-[94px] left-1/2 transform -translate-x-1/2 z-20 w-full px-4">
-        <div className="flex justify-center">
-          <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium">
-            🚀 <span className="ml-2">Building the Future with AI & Fullstack Solutions</span>
-          </div>
-        </div>
-      </div>
-
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center mt-8">
         <div className="max-w-4xl mx-auto animate-fade-in">
@@ -72,6 +63,13 @@ const HeroSection = () => {
                 </div>
               </DialogContent>
             </Dialog>
+          </div>
+
+          {/* Badge */}
+          <div className="flex justify-center mt-8 sm:mt-10">
+            <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium">
+              🚀 <span className="ml-2">Building the Future with AI & Fullstack Solutions</span>
+            </div>
           </div>
 
           {/* Stats */}
