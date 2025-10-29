@@ -18,10 +18,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 13%;
 
-    /* Brand Colors - Electric Blue Primary with Sky Blue Secondary */
-    --primary: 218 100% 62%;         /* Electric Blue #3A86FF */
+    /* Brand Colors - Bright Cyan Blue Primary */
+    --primary: 204 100% 60%;         /* Bright Cyan Blue #3BA8FF */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 218 100% 70%;
+    --primary-hover: 204 100% 68%;
 
     --secondary: 199 89% 58%;        /* Sky Blue #3ABEFF */
     --secondary-foreground: 0 0% 100%;
@@ -42,23 +42,23 @@
     /* Borders & Inputs */
     --border: 198 16% 88%;
     --input: 198 16% 88%;
-    --ring: 218 100% 62%;
+    --ring: 204 100% 60%;
 
     /* Modern Tech Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 72% 16%), hsl(218 100% 62%));
-    --gradient-secondary: linear-gradient(135deg, hsl(218 100% 62%), hsl(198 16% 73%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 72% 16% / 0.05), hsl(218 100% 62% / 0.1));
+    --gradient-primary: linear-gradient(135deg, hsl(215 72% 16%), hsl(204 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(204 100% 60%), hsl(198 16% 73%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 72% 16% / 0.05), hsl(204 100% 60% / 0.1));
     --gradient-dark: linear-gradient(135deg, hsl(215 72% 16%), hsl(0 0% 13%));
     --gradient-silver: linear-gradient(135deg, hsl(198 16% 73%), hsl(210 17% 93%));
-    --gradient-electric: linear-gradient(135deg, hsl(218 100% 62%), hsl(218 100% 70%));
+    --gradient-electric: linear-gradient(135deg, hsl(204 100% 60%), hsl(204 100% 68%));
 
   /* Elegant Shadows with Brand Colors */
   --shadow-sm: 0 1px 2px 0 hsl(215 72% 16% / 0.05);
   --shadow-md: 0 4px 6px -1px hsl(215 72% 16% / 0.1), 0 2px 4px -1px hsl(215 72% 16% / 0.06);
   --shadow-lg: 0 10px 15px -3px hsl(215 72% 16% / 0.1), 0 4px 6px -2px hsl(215 72% 16% / 0.05);
   --shadow-xl: 0 20px 25px -5px hsl(215 72% 16% / 0.1), 0 10px 10px -5px hsl(215 72% 16% / 0.04);
-  --shadow-glow: 0 0 40px hsl(218 100% 62% / 0.2);
-  --shadow-electric: 0 0 30px hsl(218 100% 62% / 0.3);
+  --shadow-glow: 0 0 40px hsl(204 100% 60% / 0.2);
+  --shadow-electric: 0 0 30px hsl(204 100% 60% / 0.3);
 
   /* Liquid Glass Effects */
   --glass-bg: rgba(255, 255, 255, 0.1);
@@ -67,9 +67,9 @@
   --glass-backdrop: blur(8px);
   --liquid-gradient: linear-gradient(135deg, 
     hsl(215 72% 16% / 0.4), 
-    hsl(218 100% 62% / 0.3), 
+    hsl(204 100% 60% / 0.3), 
     hsl(198 16% 73% / 0.2));
-  --liquid-glow: 0 0 40px hsl(218 100% 62% / 0.4), 
+  --liquid-glow: 0 0 40px hsl(204 100% 60% / 0.4), 
                  0 0 80px hsl(215 72% 16% / 0.2),
                  inset 0 0 40px hsl(198 16% 73% / 0.1);
 
@@ -109,10 +109,10 @@
     --popover: 215 72% 12%;
     --popover-foreground: 0 0% 98%;
 
-    /* Brand Colors - Enhanced Electric Blue for Dark Mode */
-    --primary: 218 100% 70%;         /* Brighter Electric Blue */
+    /* Brand Colors - Enhanced Cyan Blue for Dark Mode */
+    --primary: 204 100% 65%;         /* Brighter Cyan Blue */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 218 100% 75%;
+    --primary-hover: 204 100% 73%;
 
     --secondary: 199 89% 65%;        /* Brighter Sky Blue */
     --secondary-foreground: 0 0% 98%;
@@ -133,23 +133,23 @@
     /* Borders & Inputs */
     --border: 215 72% 18%;
     --input: 215 72% 18%;
-    --ring: 218 100% 65%;
+    --ring: 204 100% 65%;
 
     /* Dark Mode Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(215 72% 16%), hsl(218 100% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(218 100% 65%), hsl(198 16% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(215 72% 16% / 0.1), hsl(218 100% 65% / 0.1));
+    --gradient-primary: linear-gradient(135deg, hsl(215 72% 16%), hsl(204 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(204 100% 65%), hsl(198 16% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 72% 16% / 0.1), hsl(204 100% 65% / 0.1));
     --gradient-dark: linear-gradient(135deg, hsl(215 72% 8%), hsl(215 72% 16%));
     --gradient-silver: linear-gradient(135deg, hsl(198 16% 30%), hsl(198 16% 60%));
-    --gradient-electric: linear-gradient(135deg, hsl(218 100% 65%), hsl(218 100% 75%));
+    --gradient-electric: linear-gradient(135deg, hsl(204 100% 65%), hsl(204 100% 73%));
 
     /* Dark Mode Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.2);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -2px hsl(0 0% 0% / 0.2);
     --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.5), 0 10px 10px -5px hsl(0 0% 0% / 0.2);
-    --shadow-glow: 0 0 40px hsl(218 100% 65% / 0.3);
-    --shadow-electric: 0 0 30px hsl(218 100% 65% / 0.4);
+    --shadow-glow: 0 0 40px hsl(204 100% 65% / 0.3);
+    --shadow-electric: 0 0 30px hsl(204 100% 65% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -249,9 +249,9 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
+      background: linear-gradient(90deg, 
       transparent, 
-      hsl(218 100% 62% / 0.3), 
+      hsl(204 100% 60% / 0.3), 
       transparent);
     transition: left 0.8s ease;
     animation: liquid-flow 3s infinite;
