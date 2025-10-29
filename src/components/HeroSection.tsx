@@ -83,19 +83,21 @@ const HeroSection = () => {
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">98%</div>
               <div className="text-white/70 text-xs sm:text-sm">Client Satisfaction</div>
+              
+              {/* Scroll Indicator */}
+              <div className="mt-8 flex justify-center">
+                <div className="animate-pulse-glow">
+                  <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                    <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">24/7</div>
               <div className="text-white/70 text-xs sm:text-sm">Support Available</div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-pulse-glow">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </section>;
