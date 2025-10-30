@@ -103,7 +103,7 @@ const features = [
 
 const AIFeaturesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
+    <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-primary/5">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
@@ -118,13 +118,13 @@ const AIFeaturesSection = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <Card 
-                key={index} 
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-border/50"
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-lg bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 p-6 transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:-translate-y-1 hover:shadow-glow"
               >
-                <CardContent className="p-6">
+                <div className="relative z-10">
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                   </div>
@@ -134,8 +134,8 @@ const AIFeaturesSection = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {feature.description}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             );
           })}
         </div>
