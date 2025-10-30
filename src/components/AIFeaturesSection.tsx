@@ -103,7 +103,7 @@ const features = [
 
 const AIFeaturesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/10 to-primary/5">
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
