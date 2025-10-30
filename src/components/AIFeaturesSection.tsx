@@ -16,7 +16,7 @@ import {
   Lightbulb,
   Volume2
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import heroImage from "@/assets/hero-background.jpg";
 
 const features = [
   {
@@ -103,13 +103,27 @@ const features = [
 
 const AIFeaturesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="relative py-20 overflow-hidden">
+      {/* Background Image with Blur */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 blur-sm"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-black/90" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
             Supercharge your apps with AI
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto">
             Integrate powerful AI capabilities into your applications with our cutting-edge solutions
           </p>
         </div>
@@ -120,7 +134,7 @@ const AIFeaturesSection = () => {
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-lg bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10 p-6 transition-all duration-300 hover:bg-white/20 dark:hover:bg-white/10 hover:-translate-y-1 hover:shadow-glow"
+                className="group relative overflow-hidden rounded-lg bg-white/10 backdrop-blur-lg border border-white/20 p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 hover:shadow-electric"
               >
                 <div className="relative z-10">
                   <div className="mb-4">
@@ -128,10 +142,10 @@ const AIFeaturesSection = () => {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                   </div>
-                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold text-lg mb-2 text-white group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-white/70 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
