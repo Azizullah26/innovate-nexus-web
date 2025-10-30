@@ -17,6 +17,12 @@ import {
   Smartphone
 } from "lucide-react";
 import azmaLogo from "@/assets/azma-tech-logo.png";
+import aiFeaturedImage from "@/assets/blog/ai-integration-featured.jpg";
+import microservicesImage from "@/assets/blog/microservices-docker.jpg";
+import reactPerfImage from "@/assets/blog/react-performance.jpg";
+import cloudMigrationImage from "@/assets/blog/cloud-migration.jpg";
+import mobileDesignImage from "@/assets/blog/mobile-first-design.jpg";
+import cybersecurityImage from "@/assets/blog/cybersecurity.jpg";
 
 const Blog = () => {
   const featuredPost = {
@@ -27,7 +33,7 @@ const Blog = () => {
     date: "2024-01-15",
     readTime: "8 min read",
     category: "AI & Machine Learning",
-    image: "/api/placeholder/800/400",
+    image: aiFeaturedImage,
     featured: true
   };
 
@@ -40,7 +46,7 @@ const Blog = () => {
       date: "2024-01-12",
       readTime: "12 min read",
       category: "Backend Development",
-      image: "/api/placeholder/400/250"
+      image: microservicesImage
     },
     {
       id: 3,
@@ -50,7 +56,7 @@ const Blog = () => {
       date: "2024-01-10", 
       readTime: "10 min read",
       category: "Frontend Development",
-      image: "/api/placeholder/400/250"
+      image: reactPerfImage
     },
     {
       id: 4,
@@ -60,7 +66,7 @@ const Blog = () => {
       date: "2024-01-08",
       readTime: "15 min read", 
       category: "Cloud & DevOps",
-      image: "/api/placeholder/400/250"
+      image: cloudMigrationImage
     },
     {
       id: 5,
@@ -70,7 +76,7 @@ const Blog = () => {
       date: "2024-01-05",
       readTime: "7 min read",
       category: "Mobile Development", 
-      image: "/api/placeholder/400/250"
+      image: mobileDesignImage
     },
     {
       id: 6,
@@ -80,7 +86,7 @@ const Blog = () => {
       date: "2024-01-03",
       readTime: "9 min read",
       category: "Security",
-      image: "/api/placeholder/400/250"
+      image: cybersecurityImage
     }
   ];
 
@@ -147,11 +153,11 @@ const Blog = () => {
                 
                 <Card className="overflow-hidden border-0 shadow-xl glow-on-hover group">
                   <div className="relative">
-                    <div className="aspect-video bg-gradient-primary flex items-center justify-center">
-                      <div className="w-16 h-16 electric-gradient rounded-lg flex items-center justify-center">
-                        <Brain className="h-8 w-8 text-white" />
-                      </div>
-                    </div>
+                    <img 
+                      src={featuredPost.image} 
+                      alt={featuredPost.title}
+                      className="aspect-video w-full object-cover"
+                    />
                     <Badge className={`absolute top-4 left-4 ${getCategoryColor(featuredPost.category)} text-white border-0`}>
                       {featuredPost.category}
                     </Badge>
@@ -197,11 +203,11 @@ const Blog = () => {
                   {blogPosts.map((post) => (
                     <Card key={post.id} className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer">
                       <div className="relative">
-                        <div className="aspect-video bg-gradient-secondary flex items-center justify-center">
-                          <div className="w-12 h-12 primary-gradient rounded-lg flex items-center justify-center">
-                            <Code className="h-6 w-6 text-white" />
-                          </div>
-                        </div>
+                        <img 
+                          src={post.image} 
+                          alt={post.title}
+                          className="aspect-video w-full object-cover"
+                        />
                         <Badge className={`absolute top-3 left-3 ${getCategoryColor(post.category)} text-white border-0 text-xs`}>
                           {post.category}
                         </Badge>
