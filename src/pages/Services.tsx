@@ -37,7 +37,7 @@ const Services = () => {
         "Security Implementation",
         "Testing & Quality Assurance"
       ],
-      pricing: "Starting at $15,000",
+      pricing: "Starting at $1,000",
       timeline: "4-12 weeks",
       technologies: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"]
     },
