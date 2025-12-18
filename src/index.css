@@ -173,6 +173,44 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* RTL Support */
+  html.rtl {
+    direction: rtl;
+  }
+
+  html.rtl body {
+    font-family: 'Tajawal', 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+  }
+
+  /* RTL-specific spacing adjustments */
+  html.rtl .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  html.rtl .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  html.rtl .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  html.rtl .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  /* RTL margin/padding adjustments */
+  html.rtl .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+  html.rtl .ml-4 { margin-left: 0; margin-right: 1rem; }
+  html.rtl .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+  html.rtl .mr-4 { margin-right: 0; margin-left: 1rem; }
+  html.rtl .pl-4 { padding-left: 0; padding-right: 1rem; }
+  html.rtl .pr-4 { padding-right: 0; padding-left: 1rem; }
+
+  /* RTL text alignment */
+  html.rtl .text-left { text-align: right; }
+  html.rtl .text-right { text-align: left; }
 }
 
 @layer components {

@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-background.jpg";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const HeroSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-
+  const { t, direction } = useLanguage();
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image */}
       <div className="absolute inset-0 z-0" style={{
@@ -25,30 +27,29 @@ const HeroSection = () => {
 
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 text-balance px-2">
-            Transform Your Vision Into
-            <span className="gradient-text block text-green-600" style={{ WebkitTextStroke: '1px white' }}>Digital Reality</span>
+            {t('hero.title1')}
+            <span className="gradient-text block text-green-600" style={{ WebkitTextStroke: '1px white' }}>{t('hero.title2')}</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
-            We specialize in fullstack development, AI integration, and cutting-edge digital solutions
-            that propel startups and enterprises toward unprecedented growth.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <Button variant="hero" size="xl" asChild className="group w-full sm:w-auto">
               <Link to="/contact">
-                Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                {t('hero.cta')}
+                <ArrowRight className={`h-5 w-5 group-hover:translate-x-1 transition-transform ${direction === 'rtl' ? 'mr-2 rotate-180' : 'ml-2'}`} />
               </Link>
             </Button>
 
             <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
               <DialogTrigger asChild>
                 <Button variant="glass" size="xl" className="group w-full sm:w-auto">
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
+                  <Play className={direction === 'rtl' ? 'ml-2 h-5 w-5' : 'mr-2 h-5 w-5'} />
+                  {t('hero.watchDemo')}
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-[95vw] sm:max-w-4xl p-0 bg-black/95">
@@ -68,7 +69,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="flex justify-center mt-8 sm:mt-10">
             <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium">
-              🚀 <span className="ml-2">Building the Future with AI & Fullstack Solutions</span>
+              🚀 <span className={direction === 'rtl' ? 'mr-2' : 'ml-2'}>{t('hero.badge')}</span>
             </div>
           </div>
 
@@ -76,11 +77,11 @@ const HeroSection = () => {
           <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20 px-4">
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">100+</div>
-              <div className="text-white/70 text-xs sm:text-sm">Projects Delivered</div>
+              <div className="text-white/70 text-xs sm:text-sm">{t('hero.projects')}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">98%</div>
-              <div className="text-white/70 text-xs sm:text-sm">Client Satisfaction</div>
+              <div className="text-white/70 text-xs sm:text-sm">{t('hero.satisfaction')}</div>
               
               {/* Scroll Indicator */}
               <div className="mt-8 flex justify-center">
@@ -93,7 +94,7 @@ const HeroSection = () => {
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">24/7</div>
-              <div className="text-white/70 text-xs sm:text-sm">Support Available</div>
+              <div className="text-white/70 text-xs sm:text-sm">{t('hero.support')}</div>
             </div>
           </div>
         </div>

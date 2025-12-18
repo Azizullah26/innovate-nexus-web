@@ -2,14 +2,17 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import azmaLogo from "@/assets/azma-tech-logo.png";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,12 +24,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "About", path: "/about" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
+    { name: t('nav.home'), path: "/" },
+    { name: t('nav.services'), path: "/services" },
+    { name: t('nav.portfolio'), path: "/portfolio" },
+    { name: t('nav.about'), path: "/about" },
+    { name: t('nav.blog'), path: "/blog" },
+    { name: t('nav.contact'), path: "/contact" },
   ];
 
   const NavLinks = ({ mobile = false, onClick = () => {} }) => (
@@ -67,14 +70,15 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             <NavLinks />
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:flex">
+          {/* Desktop CTA Button & Language Switcher */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSwitcher />
             <Button variant="hero" size="sm" asChild>
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">{t('nav.getStarted')}</Link>
             </Button>
           </div>
 
@@ -88,10 +92,11 @@ const Navigation = () => {
             <SheetContent side="right" className="w-[280px] sm:w-[320px]">
               <div className="flex flex-col space-y-4 mt-8">
                 <NavLinks mobile onClick={() => setIsOpen(false)} />
-                <div className="pt-4">
+                <div className="pt-4 space-y-4">
+                  <LanguageSwitcher />
                   <Button variant="hero" size="sm" className="w-full" asChild>
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
-                      Get Started
+                      {t('nav.getStarted')}
                     </Link>
                   </Button>
                 </div>
