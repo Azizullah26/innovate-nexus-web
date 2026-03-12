@@ -18,7 +18,7 @@ import {
   Users,
   Zap
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import azmaLogo from "@/assets/azma-tech-logo.png";
 
