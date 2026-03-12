@@ -25,6 +25,23 @@ import azmaLogo from "@/assets/azma-tech-logo.png";
 const Contact = () => {
   const { language } = useLanguage();
   const { toast } = useToast();
+  const [currency, setCurrency] = useState<'AED' | 'EUR'>('EUR');
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        const gulfCountries = ['AE', 'SA', 'QA', 'KW', 'BH', 'OM'];
+        if (gulfCountries.includes(data.country_code)) {
+          setCurrency('AED');
+        } else {
+          setCurrency('EUR');
+        }
+      })
+      .catch(() => {
+        setCurrency(language === 'ar' ? 'AED' : 'EUR');
+      });
+  }, [language]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
