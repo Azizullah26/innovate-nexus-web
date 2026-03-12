@@ -276,11 +276,11 @@ const Contact = () => {
                           className="w-full mt-2 h-12 px-3 border border-input bg-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base"
                         >
                           <option value="">{language === 'ar' ? 'اختر نطاق الميزانية' : 'Select Budget Range'}</option>
-                          <option value="5k-15k">{language === 'ar' ? 'AED 20,000 - AED 60,000' : '€5,000 - €15,000'}</option>
-                          <option value="15k-50k">{language === 'ar' ? 'AED 60,000 - AED 200,000' : '€15,000 - €50,000'}</option>
-                          <option value="50k-100k">{language === 'ar' ? 'AED 200,000 - AED 400,000' : '€50,000 - €100,000'}</option>
-                          <option value="100k-250k">{language === 'ar' ? 'AED 400,000 - AED 1,000,000' : '€100,000 - €250,000'}</option>
-                          <option value="250k+">{language === 'ar' ? '+AED 1,000,000' : '€250,000+'}</option>
+                          <option value="5k-15k">{currency === 'AED' ? 'AED 20,000 - AED 60,000' : '€5,000 - €15,000'}</option>
+                          <option value="15k-50k">{currency === 'AED' ? 'AED 60,000 - AED 200,000' : '€15,000 - €50,000'}</option>
+                          <option value="50k-100k">{currency === 'AED' ? 'AED 200,000 - AED 400,000' : '€50,000 - €100,000'}</option>
+                          <option value="100k-250k">{currency === 'AED' ? 'AED 400,000 - AED 1,000,000' : '€100,000 - €250,000'}</option>
+                          <option value="250k+">{currency === 'AED' ? '+AED 1,000,000' : '€250,000+'}</option>
                         </select>
                       </div>
                     </div>
