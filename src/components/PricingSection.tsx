@@ -27,13 +27,13 @@ const PricingSection = () => {
       name: "Starter Package",
       target: "Small Businesses",
       description: "Perfect for cafés, salons, startups, freelancers, and small shops",
-      price: "€2,500 – €5,000",
-      monthly: "€1,000 / month",
+      price: "€1,125 – €2,125",
+      monthly: "€450 / month",
       features: [
         "Professional website (up to 5 pages, responsive)",
         "SEO setup & Google My Business optimization",
         "Social media management (2 platforms, 3 posts/week)",
-        "One digital ad campaign (up to €500 ad spend)",
+        "One digital ad campaign (up to €200 ad spend)",
         "15% agency fee on ad spend"
       ],
       color: "from-blue-500/20 to-cyan-500/20"
@@ -43,14 +43,14 @@ const PricingSection = () => {
       name: "Growth Package",
       target: "SMEs & Growing Brands",
       description: "Ideal for retail stores, real estate, clinics, and logistics",
-      price: "€8,000 – €15,000",
-      monthly: "€2,500 – €5,000 / month",
+      price: "€3,600 – €6,750",
+      monthly: "€1,125 – €2,250 / month",
       popular: true,
       features: [
         "Custom website or e-commerce (WordPress/Shopify/Custom)",
         "SEO & analytics tracking",
         "4–5 social media platforms with content strategy",
-        "Google, Meta & TikTok ads (up to €2,000 ad spend)",
+        "Google, Meta & TikTok ads (up to €900 ad spend)",
         "Email marketing setup & automation",
         "10–20% management fee on ad budget"
       ],
@@ -61,8 +61,8 @@ const PricingSection = () => {
       name: "Professional Package",
       target: "Established Companies",
       description: "For construction, automotive, fashion, tech, and regional brands",
-      price: "€25,000 – €60,000",
-      monthly: "€6,000 – €15,000 / month",
+      price: "€11,250 – €27,000",
+      monthly: "€2,700 – €6,750 / month",
       features: [
         "Custom enterprise website (multi-language, integrations)",
         "Advanced SEO & backlink campaigns",
@@ -70,7 +70,7 @@ const PricingSection = () => {
         "Video & motion ad production",
         "Social media management for 5+ platforms",
         "Monthly analytics & performance reporting",
-        "Ad budgets €10k–€100k/month supported"
+        "Ad budgets €4.5k–€45k/month supported"
       ],
       color: "from-orange-500/20 to-red-500/20"
     },
@@ -79,12 +79,12 @@ const PricingSection = () => {
       name: "Mobile App Development",
       target: "iOS & Android Apps",
       description: "Native or cross-platform mobile applications",
-      price: "€20,000 – €400,000+",
-      monthly: "€2,000 – €6,000 / month",
+      price: "€9,000 – €180,000+",
+      monthly: "€900 – €2,700 / month",
       features: [
-        "Basic MVP: €20,000 – €40,000",
-        "Mid-range (backend, notifications, payments): €50,000 – €120,000",
-        "Complex/Enterprise (AI, chat, live data): €150,000 – €400,000+",
+        "Basic MVP: €9,000 – €18,000",
+        "Mid-range (backend, notifications, payments): €22,500 – €54,000",
+        "Complex/Enterprise (AI, chat, live data): €67,500 – €180,000+",
         "Maintenance & updates included",
         "App Store & Play Store deployment"
       ],
@@ -93,16 +93,16 @@ const PricingSection = () => {
   ];
 
   const addOns = [
-    { name: "Logo & branding kit", price: "€500 – €2,000" },
-    { name: "Video marketing content", price: "€1,000 – €5,000" },
-    { name: "SEO audit & competitor report", price: "€800 – €2,000" },
-    { name: "Influencer collaboration & campaign setup", price: "€1,500 – €6,000" }
+    { name: "Logo & branding kit", price: "€225 – €900" },
+    { name: "Video marketing content", price: "€450 – €2,250" },
+    { name: "SEO audit & competitor report", price: "€360 – €900" },
+    { name: "Influencer collaboration & campaign setup", price: "€675 – €2,700" }
   ];
 
   const retainerModel = [
-    { package: "Starter", deliverables: "2 platforms + 1 ad campaign", price: "€1,000" },
-    { package: "Growth", deliverables: "4 platforms + PPC + SEO", price: "€3,500" },
-    { package: "Professional", deliverables: "Full digital + creative + strategy", price: "€10,000+" }
+    { package: "Starter", deliverables: "2 platforms + 1 ad campaign", price: "€450" },
+    { package: "Growth", deliverables: "4 platforms + PPC + SEO", price: "€1,575" },
+    { package: "Professional", deliverables: "Full digital + creative + strategy", price: "€4,500+" }
   ];
 
   return (
