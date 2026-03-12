@@ -23,6 +23,7 @@ import { useToast } from "@/hooks/use-toast";
 import azmaLogo from "@/assets/azma-tech-logo.png";
 
 const Contact = () => {
+  const { language } = useLanguage();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
