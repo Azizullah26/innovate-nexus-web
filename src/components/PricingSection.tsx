@@ -93,16 +93,16 @@ const PricingSection = () => {
   ];
 
   const addOns = [
-    { name: "Logo & branding kit", price: "€500 – €2,000" },
-    { name: "Video marketing content", price: "€1,000 – €5,000" },
-    { name: "SEO audit & competitor report", price: "€800 – €2,000" },
-    { name: "Influencer collaboration & campaign setup", price: "€1,500 – €6,000" }
+    { name: "Logo & branding kit", price: "€225 – €900" },
+    { name: "Video marketing content", price: "€450 – €2,250" },
+    { name: "SEO audit & competitor report", price: "€360 – €900" },
+    { name: "Influencer collaboration & campaign setup", price: "€675 – €2,700" }
   ];
 
   const retainerModel = [
-    { package: "Starter", deliverables: "2 platforms + 1 ad campaign", price: "€1,000" },
-    { package: "Growth", deliverables: "4 platforms + PPC + SEO", price: "€3,500" },
-    { package: "Professional", deliverables: "Full digital + creative + strategy", price: "€10,000+" }
+    { package: "Starter", deliverables: "2 platforms + 1 ad campaign", price: "€450" },
+    { package: "Growth", deliverables: "4 platforms + PPC + SEO", price: "€1,575" },
+    { package: "Professional", deliverables: "Full digital + creative + strategy", price: "€4,500+" }
   ];
 
   return (
