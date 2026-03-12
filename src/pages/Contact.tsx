@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,21 +60,37 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Thank you for reaching out. We'll get back to you within 24 hours with a detailed response.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      project: '',
-      budget: '',
-      message: '',
-      timeline: ''
-    });
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent Successfully! ✅",
+        description: "Thank you for reaching out. We'll get back to you within 24 hours with a free consultation.",
+      });
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        project: '',
+        budget: '',
+        message: '',
+        timeline: ''
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again or email us directly at azizkhanlinkedin@gmail.com",
+        variant: "destructive",
+      });
+    }
   };
 
   const contactInfo = [
