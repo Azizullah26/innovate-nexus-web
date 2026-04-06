@@ -3,272 +3,214 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Code2, 
-  Brain, 
-  Cloud, 
-  Users, 
-  Smartphone, 
-  Database,
+  Zap,
+  Bot,
+  MessageSquare,
+  MapPin,
+  Database as DatabaseIcon,
+  Shield,
+  Code2,
+  Brain,
   ArrowRight,
   CheckCircle,
   Clock,
-  DollarSign,
-  Bot,
-  Zap,
-  Megaphone,
-  TrendingUp,
-  Globe
+  DollarSign
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
+  const { t, direction } = useLanguage();
+
   const services = [
     {
-      icon: Code2,
-      title: "Fullstack Web Development",
-      description: "End-to-end web solutions using React, Node.js, and modern frameworks that deliver exceptional user experiences.",
-      fullDescription: "We create scalable, responsive web applications using cutting-edge technologies like React, Next.js, Node.js, and modern databases. Our development process ensures high performance, security, and maintainability.",
+      icon: Zap,
+      title: "AI Automation Solutions",
+      description: "Intelligent workflows, process automation, and business optimization systems that eliminate manual tasks.",
+      fullDescription: "Transform your operations with AI-powered automation that streamlines workflows, reduces human error, and scales your business processes. We design and deploy end-to-end automation solutions tailored to your industry.",
       features: [
-        "React & Next.js Development",
-        "Node.js & Express Backend",
-        "Database Design & Optimization",
-        "RESTful & GraphQL APIs",
-        "Responsive UI/UX Design",
-        "Performance Optimization",
-        "Security Implementation",
-        "Testing & Quality Assurance"
+        "Intelligent Workflow Design",
+        "Process Mining & Optimization",
+        "RPA with AI Enhancement",
+        "Document Processing Automation",
+        "Email & Communication Automation",
+        "Integration with Existing Tools",
+        "Real-time Monitoring Dashboards",
+        "ROI Tracking & Analytics"
       ],
-      pricing: "Starting at $1,000",
-      timeline: "4-12 weeks",
-      technologies: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"]
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications that engage users and drive business growth across iOS and Android.",
-      fullDescription: "Build engaging mobile experiences with our expert team. We develop both native and cross-platform apps that deliver exceptional performance and user experience across all devices.",
-      features: [
-        "React Native Development",
-        "Native iOS (Swift) Development",
-        "Native Android (Kotlin) Development",
-        "Cross-platform Solutions",
-        "App Store Optimization",
-        "Push Notifications",
-        "Offline Functionality",
-        "Analytics Integration"
-      ],
-      pricing: "Starting at $20,000",
-      timeline: "6-16 weeks",
-      technologies: ["React Native", "Swift", "Kotlin", "Firebase", "Redux", "TypeScript"]
+      pricing: "Starting at $8,000",
+      timeline: "3-8 weeks",
+      technologies: ["Python", "Make.com", "Zapier", "LangChain", "Custom APIs", "n8n"]
     },
     {
       icon: Bot,
-      title: "AI Chatbot Solutions",
-      description: "Intelligent conversational AI powered by advanced language models for 24/7 customer support and engagement.",
-      fullDescription: "Transform customer interactions with intelligent AI chatbots that understand context, provide accurate responses, and seamlessly integrate with your existing systems. Our chatbots are built using state-of-the-art language models.",
+      title: "AI Agents Development",
+      description: "Autonomous agents, multi-agent systems, and decision-making solutions for complex business scenarios.",
+      fullDescription: "Build intelligent AI agents that can reason, plan, and execute tasks autonomously. Our agents integrate with your data sources and tools to deliver actionable outcomes without constant human oversight.",
       features: [
-        "Natural Language Processing",
-        "Multi-language Support",
-        "Context-Aware Responses",
-        "Seamless Platform Integration",
-        "Custom Training on Your Data",
-        "Analytics & Insights",
-        "Human Handoff Capability",
-        "Voice Integration"
+        "Autonomous Task Execution",
+        "Multi-Agent Orchestration",
+        "Tool-Use & Function Calling",
+        "Memory & Context Management",
+        "Custom Knowledge Bases",
+        "Safety & Guardrails",
+        "Performance Monitoring",
+        "Continuous Learning Loops"
       ],
-      pricing: "Starting at $12,000",
-      timeline: "3-8 weeks",
-      technologies: ["OpenAI", "GPT-4", "Langchain", "Python", "Node.js", "WebSocket"]
+      pricing: "Starting at $15,000",
+      timeline: "4-12 weeks",
+      technologies: ["OpenAI", "LangChain", "CrewAI", "AutoGen", "Python", "Vector DBs"]
     },
     {
-      icon: Zap,
-      title: "AI Automation",
-      description: "Streamline workflows and boost efficiency using AI technologies to perform tasks without human intervention.",
-      fullDescription: "AI automation uses artificial intelligence to perform repetitive tasks, optimize processes, and make intelligent decisions automatically. We help businesses reduce costs, improve accuracy, and scale operations.",
+      icon: MessageSquare,
+      title: "AI Chatbots & Virtual Assistants",
+      description: "Website bots, WhatsApp bots, and omnichannel customer automation powered by advanced NLP.",
+      fullDescription: "Deploy intelligent conversational AI across all customer touchpoints. Our chatbots understand context, handle complex queries, and seamlessly escalate to human agents when needed — in multiple languages including Arabic.",
       features: [
-        "Workflow Automation",
-        "Process Optimization",
-        "Intelligent Decision Making",
-        "Task Scheduling & Management",
-        "Document Processing",
-        "Email & Communication Automation",
-        "Data Entry Automation",
-        "Integration with Existing Tools"
+        "Website Chat Integration",
+        "WhatsApp Business Automation",
+        "Multi-language Support (AR/EN)",
+        "Context-Aware Conversations",
+        "CRM Integration",
+        "Lead Qualification",
+        "Appointment Scheduling",
+        "Human Handoff System"
       ],
       pricing: "Starting at $10,000",
-      timeline: "3-10 weeks",
-      technologies: ["Python", "RPA Tools", "AI APIs", "Zapier", "Make.com", "Custom Scripts"]
+      timeline: "3-6 weeks",
+      technologies: ["GPT-4", "Dialogflow", "WhatsApp API", "Twilio", "Node.js", "Python"]
+    },
+    {
+      icon: MapPin,
+      title: "Google Business Profile Optimization",
+      description: "Setup, verification, SEO optimization, and automated review management for maximum local visibility.",
+      fullDescription: "Dominate local search results with our comprehensive Google Business Profile optimization service. We handle everything from initial setup to ongoing review management and analytics reporting.",
+      features: [
+        "Profile Setup & Verification",
+        "Local SEO Optimization",
+        "Review Generation Automation",
+        "Photo & Content Management",
+        "Competitor Analysis",
+        "Multi-location Management",
+        "Performance Analytics",
+        "Google Maps Ranking"
+      ],
+      pricing: "Starting at $2,000",
+      timeline: "1-3 weeks",
+      technologies: ["Google APIs", "SEO Tools", "Analytics", "Review Platforms"]
+    },
+    {
+      icon: DatabaseIcon,
+      title: "CRM & ERP Solutions",
+      description: "Custom CRM/ERP systems, Odoo integrations, and complete workflow digitization for enterprises.",
+      fullDescription: "Modernize your business operations with custom CRM and ERP solutions. We specialize in Odoo implementations and custom-built systems that integrate with your existing tools and processes.",
+      features: [
+        "Custom CRM Development",
+        "Odoo Implementation & Customization",
+        "Workflow Digitization",
+        "Inventory Management",
+        "HR & Payroll Modules",
+        "Financial Reporting",
+        "Third-party Integrations",
+        "Mobile Access"
+      ],
+      pricing: "Starting at $12,000",
+      timeline: "6-16 weeks",
+      technologies: ["Odoo", "Python", "React", "PostgreSQL", "Node.js", "Docker"]
+    },
+    {
+      icon: Shield,
+      title: "UAE Integrations",
+      description: "UAE PASS integration, government API connections, and smart authentication built for the UAE digital ecosystem.",
+      fullDescription: "Navigate the UAE's digital infrastructure with our specialized integration services. We build compliant, secure connections to UAE PASS, government portals, and national digital identity systems.",
+      features: [
+        "UAE PASS Authentication",
+        "Government Portal APIs",
+        "Smart Dubai Integration",
+        "Digital Signature Systems",
+        "Compliance & Data Security",
+        "National ID Verification",
+        "E-Dirham Payment Gateway",
+        "Arabic-first UI/UX"
+      ],
+      pricing: "Starting at $15,000",
+      timeline: "4-10 weeks",
+      technologies: ["UAE PASS SDK", "REST APIs", "OAuth 2.0", "Node.js", "React", "AWS"]
+    },
+    {
+      icon: Code2,
+      title: "Full Stack Development",
+      description: "Web and mobile apps, scalable systems, robust APIs, and cloud-native solutions.",
+      fullDescription: "End-to-end development of modern web and mobile applications using cutting-edge technologies. We build scalable, secure, and performant applications that grow with your business.",
+      features: [
+        "React & Next.js Web Apps",
+        "React Native Mobile Apps",
+        "Node.js & Python Backends",
+        "RESTful & GraphQL APIs",
+        "Cloud Infrastructure (AWS/Azure)",
+        "CI/CD & DevOps",
+        "Database Architecture",
+        "Performance Optimization"
+      ],
+      pricing: "Starting at $5,000",
+      timeline: "4-16 weeks",
+      technologies: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"]
     },
     {
       icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Integrate cutting-edge AI solutions to automate processes, enhance experiences, and unlock valuable insights.",
-      fullDescription: "Transform your business with AI-powered solutions. From recommendation systems to predictive analytics and computer vision, we integrate cutting-edge AI technologies into your applications.",
+      title: "AI & Data Solutions",
+      description: "Predictive analytics, intelligent dashboards, and AI-powered reporting that turns data into competitive advantage.",
+      fullDescription: "Unlock the strategic value of your data with AI-powered analytics and visualization. We build custom dashboards, predictive models, and reporting systems that drive informed decision-making.",
       features: [
-        "ChatGPT & OpenAI Integration",
-        "Custom Machine Learning Models",
-        "Natural Language Processing",
-        "Computer Vision Solutions",
-        "Predictive Analytics",
-        "Recommendation Systems",
-        "Automated Decision Making",
-        "Data Pipeline Development"
-      ],
-      pricing: "Starting at $25,000",
-      timeline: "8-20 weeks",
-      technologies: ["Python", "TensorFlow", "OpenAI API", "Langchain", "Pandas", "scikit-learn"]
-    },
-    {
-      icon: Cloud,
-      title: "Cloud & DevOps Solutions",
-      description: "Scalable cloud infrastructure and DevOps practices for reliable, high-performance applications.",
-      fullDescription: "Modernize your infrastructure with cloud-native solutions. We provide comprehensive cloud migration, containerization, and DevOps services that ensure scalability, reliability, and security.",
-      features: [
-        "AWS & Azure Cloud Setup",
-        "Docker & Kubernetes",
-        "CI/CD Pipeline Development",
-        "Infrastructure as Code",
-        "Auto-scaling & Load Balancing",
-        "Monitoring & Logging",
-        "Security & Compliance",
-        "Cost Optimization"
-      ],
-      pricing: "Starting at $12,000",
-      timeline: "3-10 weeks",
-      technologies: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "Jenkins"]
-    },
-    {
-      icon: Database,
-      title: "Data Engineering & Analytics",
-      description: "Transform raw data into actionable insights with comprehensive data solutions.",
-      fullDescription: "Unlock the power of your data with our end-to-end data solutions. From data pipelines and warehousing to advanced analytics and visualization, we help you make data-driven decisions.",
-      features: [
-        "Data Pipeline Development",
-        "Data Warehouse Design",
-        "ETL/ELT Processes",
+        "Predictive Analytics Models",
+        "Custom Dashboard Development",
+        "AI-Powered Reporting",
+        "Data Pipeline Engineering",
+        "Business Intelligence",
         "Real-time Data Processing",
-        "Business Intelligence Dashboards",
-        "Data Visualization",
-        "Performance Analytics",
-        "Predictive Modeling"
+        "Computer Vision Solutions",
+        "NLP & Text Analytics"
       ],
       pricing: "Starting at $18,000",
       timeline: "6-14 weeks",
-      technologies: ["Python", "Apache Airflow", "Snowflake", "Tableau", "Power BI", "Spark"]
+      technologies: ["Python", "TensorFlow", "Power BI", "Apache Spark", "Snowflake", "OpenAI"]
     },
-    {
-      icon: Users,
-      title: "Digital Consulting",
-      description: "Strategic technology consulting to navigate digital transformation and optimize your technology stack for maximum ROI.",
-      fullDescription: "Navigate the complex landscape of digital transformation with our expert consulting services. We analyze your current systems, identify opportunities, and create a roadmap for technological advancement.",
-      features: [
-        "Technology Assessment",
-        "Digital Strategy Planning",
-        "System Architecture Review",
-        "Process Optimization",
-        "Technology Roadmap Development",
-        "Risk Assessment & Mitigation",
-        "Change Management Support",
-        "Performance & Security Audits"
-      ],
-      pricing: "Starting at $8,000",
-      timeline: "2-8 weeks",
-      technologies: ["Various", "Based on", "Client Needs", "And Current", "Technology", "Stack"]
-    },
-    {
-      icon: Megaphone,
-      title: "Social Media Advertising",
-      description: "Comprehensive digital advertising campaigns across TikTok, Instagram, Google Ads, and YouTube to maximize ROI.",
-      fullDescription: "Drive engagement and conversions with data-driven social media advertising strategies. We create, manage, and optimize campaigns across all major platforms to reach your target audience and achieve measurable results.",
-      features: [
-        "TikTok Ads Management",
-        "Instagram Marketing Campaigns",
-        "Google Ads (Search & Display)",
-        "YouTube Video Advertising",
-        "Audience Targeting & Segmentation",
-        "Creative Content Development",
-        "A/B Testing & Optimization",
-        "Performance Analytics & Reporting"
-      ],
-      pricing: "Starting at $5,000/month",
-      timeline: "Ongoing campaigns",
-      technologies: ["Meta Ads", "Google Ads", "TikTok Ads", "Analytics Tools", "Creative Suite"]
-    },
-    {
-      icon: TrendingUp,
-      title: "Brand Development for Startups",
-      description: "Complete brand identity and marketing strategy for startups, from concept to market launch and beyond.",
-      fullDescription: "Build a strong brand foundation from day one. We help startups create compelling brand identities, develop go-to-market strategies, and execute launch campaigns that capture attention and drive growth.",
-      features: [
-        "Brand Strategy & Positioning",
-        "Logo & Visual Identity Design",
-        "Market Research & Analysis",
-        "Go-to-Market Strategy",
-        "Launch Campaign Execution",
-        "Social Media Presence Setup",
-        "Content Marketing Strategy",
-        "Brand Guidelines & Assets"
-      ],
-      pricing: "Starting at $8,000",
-      timeline: "4-10 weeks",
-      technologies: ["Adobe Suite", "Figma", "Content Tools", "Social Platforms", "Analytics"]
-    },
-    {
-      icon: Globe,
-      title: "Global Advertising Campaigns",
-      description: "Multi-platform international advertising campaigns that expand your brand presence across global markets.",
-      fullDescription: "Scale your business globally with expertly crafted international advertising campaigns. We develop localized strategies that resonate with diverse audiences while maintaining brand consistency across all regions.",
-      features: [
-        "International SEO Strategy",
-        "Multi-region Campaign Management",
-        "Localization & Cultural Adaptation",
-        "Cross-platform Coordination",
-        "Global Performance Analytics",
-        "Market Entry Strategies",
-        "Budget Optimization Across Regions",
-        "Compliance with Local Regulations"
-      ],
-      pricing: "Starting at $15,000/month",
-      timeline: "Ongoing campaigns",
-      technologies: ["Global Ad Networks", "SEO Tools", "Translation Services", "Analytics Platforms"]
-    }
   ];
 
   return (
     <div className="min-h-screen">
       <Navigation />
       <main className="pt-16">
-        {/* Hero Section */}
-        <section className="relative py-24 bg-gradient-to-br from-primary/10 via-background to-accent/10 overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        {/* Hero */}
+        <section className="relative py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/5 overflow-hidden">
           <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 animate-fade-in">
-              💼 Professional Services Portfolio
+              ⚡ Enterprise-Grade Solutions
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              Our <span className="gradient-text">Services</span>
+              Our <span className="gradient-text">Solutions</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in">
-              Comprehensive technology solutions designed to accelerate your business growth 
-              and deliver exceptional digital experiences that drive results.
+              AI-powered automation, intelligent agents, and enterprise digital solutions 
+              designed for UAE government and corporate excellence.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground animate-fade-in">
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-success" />
-                <span>11 Specialized Services</span>
+                <CheckCircle className="h-4 w-4 text-primary" />
+                <span>8 Specialized Solutions</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-success" />
+                <CheckCircle className="h-4 w-4 text-primary" />
                 <span>100+ Projects Delivered</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-success" />
-                <span>24/7 Support</span>
+                <CheckCircle className="h-4 w-4 text-primary" />
+                <span>UAE Government Trusted</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Services */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="space-y-12">
@@ -276,9 +218,8 @@ const Services = () => {
                 const IconComponent = service.icon;
                 const isEven = index % 2 === 0;
                 return (
-                  <Card key={index} className="overflow-hidden border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 group animate-fade-in">
+                  <Card key={index} className="overflow-hidden border-0 shadow-2xl transition-all duration-300 group animate-fade-in">
                     <div className={`grid grid-cols-1 lg:grid-cols-3 gap-0 ${!isEven ? 'lg:grid-flow-col-dense' : ''}`}>
-                      {/* Service Info */}
                       <div className={`lg:col-span-2 p-8 md:p-10 ${!isEven ? 'lg:col-start-1' : ''}`}>
                         <CardHeader className="p-0 mb-6">
                           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
@@ -295,16 +236,14 @@ const Services = () => {
                             </div>
                           </div>
                         </CardHeader>
-                        
                         <CardContent className="p-0">
                           <p className="text-muted-foreground leading-relaxed mb-8 text-base">
                             {service.fullDescription}
                           </p>
-                          
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {service.features.map((feature, idx) => (
                               <div key={idx} className="flex items-start space-x-3 group/item">
-                                <CheckCircle className="h-5 w-5 text-success flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
                                 <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">{feature}</span>
                               </div>
                             ))}
@@ -312,12 +251,10 @@ const Services = () => {
                         </CardContent>
                       </div>
 
-                      {/* Service Details */}
-                      <div className={`bg-gradient-to-br from-secondary/40 to-secondary/20 p-8 md:p-10 flex flex-col justify-between ${!isEven ? 'lg:col-start-3' : ''}`}>
+                      <div className={`bg-gradient-to-br from-primary/10 to-secondary/10 p-8 md:p-10 flex flex-col justify-between ${!isEven ? 'lg:col-start-3' : ''}`}>
                         <div className="space-y-8">
-                          {/* Pricing */}
-                          <div className="flex items-start space-x-4 group/detail">
-                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/detail:bg-primary/20 transition-colors">
+                          <div className="flex items-start space-x-4">
+                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                               <DollarSign className="h-5 w-5 text-primary" />
                             </div>
                             <div>
@@ -325,10 +262,8 @@ const Services = () => {
                               <p className="text-lg font-bold text-foreground">{service.pricing}</p>
                             </div>
                           </div>
-
-                          {/* Timeline */}
-                          <div className="flex items-start space-x-4 group/detail">
-                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/detail:bg-primary/20 transition-colors">
+                          <div className="flex items-start space-x-4">
+                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                               <Clock className="h-5 w-5 text-primary" />
                             </div>
                             <div>
@@ -336,20 +271,17 @@ const Services = () => {
                               <p className="text-lg font-bold text-foreground">{service.timeline}</p>
                             </div>
                           </div>
-
-                          {/* Technologies */}
                           <div>
-                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-semibold">Technologies Used</p>
+                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-semibold">Technologies</p>
                             <div className="flex flex-wrap gap-2">
                               {service.technologies.map((tech, idx) => (
-                                <Badge key={idx} variant="secondary" className="text-xs px-3 py-1 hover:bg-primary hover:text-white transition-colors cursor-default">
+                                <Badge key={idx} variant="secondary" className="text-xs px-3 py-1">
                                   {tech}
                                 </Badge>
                               ))}
                             </div>
                           </div>
                         </div>
-
                         <div className="pt-8 space-y-3">
                           <Button variant="hero" className="w-full group/btn">
                             Get Started
@@ -368,22 +300,21 @@ const Services = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="relative py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        {/* CTA */}
+        <section className="relative py-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/10 overflow-hidden">
           <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-fade-in">
-                Ready to Transform Your <span className="gradient-text">Business</span>?
+                Ready to <span className="gradient-text">Transform</span> Your Business?
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground mb-10 animate-fade-in">
-                Let's discuss your project and create a custom solution that drives real results 
-                for your business. Our expert team is ready to bring your vision to life.
+                Book a free consultation and discover how our AI-powered solutions 
+                can optimize your operations and accelerate growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
                 <Button variant="hero" size="lg" asChild className="group">
                   <a href="/contact">
-                    Start Your Project
+                    Book Free Consultation
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
@@ -394,8 +325,6 @@ const Services = () => {
                   </a>
                 </Button>
               </div>
-              
-              {/* Trust Indicators */}
               <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16 pt-8 border-t border-border">
                 <div className="text-center">
                   <div className="text-3xl font-bold gradient-text mb-2">100+</div>
