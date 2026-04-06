@@ -1,136 +1,121 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  Code2, 
-  Brain, 
-  Cloud, 
-  Users, 
-  Smartphone, 
-  Database,
-  ArrowRight,
-  Bot,
-  Zap,
-  Megaphone,
-  TrendingUp,
-  Globe
+  Zap, 
+  Bot, 
+  MessageSquare, 
+  MapPin,
+  Database as DatabaseIcon,
+  Shield,
+  Code2,
+  Brain,
+  ArrowRight
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t, direction } = useLanguage();
+
   const services = [
     {
-      icon: Code2,
-      title: "Fullstack Web Development",
-      description: "End-to-end web solutions using React, Node.js, and modern frameworks. We build scalable, responsive applications that deliver exceptional user experiences.",
-      features: ["React & Next.js", "Node.js & Express", "Database Design", "API Development"]
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications that engage users and drive business growth across iOS and Android platforms.",
-      features: ["React Native", "iOS Development", "Android Development", "App Store Optimization"]
+      icon: Zap,
+      titleKey: 'services.automation.title',
+      descKey: 'services.automation.desc',
+      features: ['services.automation.f1', 'services.automation.f2', 'services.automation.f3', 'services.automation.f4']
     },
     {
       icon: Bot,
-      title: "AI Chatbot",
-      description: "Intelligent conversational AI powered by advanced language models to provide 24/7 customer support, engage users, and automate interactions.",
-      features: ["Natural Language Processing", "Multi-language Support", "Context-Aware Responses", "Seamless Integration"]
+      titleKey: 'services.agents.title',
+      descKey: 'services.agents.desc',
+      features: ['services.agents.f1', 'services.agents.f2', 'services.agents.f3', 'services.agents.f4']
     },
     {
-      icon: Zap,
-      title: "AI Automation",
-      description: "AI automation is the use of artificial intelligence technologies to perform tasks without human intervention, streamlining workflows and boosting efficiency.",
-      features: ["Workflow Automation", "Process Optimization", "Intelligent Decision Making", "Task Scheduling"]
+      icon: MessageSquare,
+      titleKey: 'services.chatbots.title',
+      descKey: 'services.chatbots.desc',
+      features: ['services.chatbots.f1', 'services.chatbots.f2', 'services.chatbots.f3', 'services.chatbots.f4']
+    },
+    {
+      icon: MapPin,
+      titleKey: 'services.google.title',
+      descKey: 'services.google.desc',
+      features: ['services.google.f1', 'services.google.f2', 'services.google.f3', 'services.google.f4']
+    },
+    {
+      icon: DatabaseIcon,
+      titleKey: 'services.crm.title',
+      descKey: 'services.crm.desc',
+      features: ['services.crm.f1', 'services.crm.f2', 'services.crm.f3', 'services.crm.f4']
+    },
+    {
+      icon: Shield,
+      titleKey: 'services.uae.title',
+      descKey: 'services.uae.desc',
+      features: ['services.uae.f1', 'services.uae.f2', 'services.uae.f3', 'services.uae.f4']
+    },
+    {
+      icon: Code2,
+      titleKey: 'services.fullstack.title',
+      descKey: 'services.fullstack.desc',
+      features: ['services.fullstack.f1', 'services.fullstack.f2', 'services.fullstack.f3', 'services.fullstack.f4']
     },
     {
       icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Integrate cutting-edge AI solutions to automate processes, enhance user experiences, and unlock valuable insights from your data.",
-      features: ["ChatGPT Integration", "Computer Vision", "Predictive Analytics", "Custom AI Models"]
+      titleKey: 'services.data.title',
+      descKey: 'services.data.desc',
+      features: ['services.data.f1', 'services.data.f2', 'services.data.f3', 'services.data.f4']
     },
-    {
-      icon: Cloud,
-      title: "Cloud & DevOps",
-      description: "Scalable cloud infrastructure and DevOps solutions that ensure your applications run smoothly and securely at any scale.",
-      features: ["AWS & Azure", "Docker & Kubernetes", "CI/CD Pipelines", "Infrastructure as Code"]
-    },
-    {
-      icon: Database,
-      title: "Data Solutions",
-      description: "Comprehensive data architecture, analytics, and visualization solutions that transform raw data into actionable business intelligence.",
-      features: ["Database Architecture", "Data Analytics", "Business Intelligence", "Real-time Processing"]
-    },
-    {
-      icon: Users,
-      title: "Digital Consulting",
-      description: "Strategic technology consulting to help you navigate digital transformation and optimize your technology stack for maximum ROI.",
-      features: ["Tech Strategy", "Digital Transformation", "Performance Optimization", "Security Audits"]
-    },
-    {
-      icon: Megaphone,
-      title: "Social Media Advertising",
-      description: "Comprehensive digital advertising campaigns across TikTok, Instagram, Google Ads, and YouTube to maximize your reach and ROI.",
-      features: ["TikTok Ads", "Instagram Marketing", "Google Ads", "YouTube Campaigns"]
-    },
-    {
-      icon: TrendingUp,
-      title: "Brand Development for Startups",
-      description: "Complete brand identity and marketing strategy for startups, from concept to market launch, building a strong foundation for growth.",
-      features: ["Brand Strategy", "Logo & Identity Design", "Market Positioning", "Launch Campaigns"]
-    },
-    {
-      icon: Globe,
-      title: "Global Advertising Campaigns",
-      description: "Multi-platform international advertising campaigns that expand your brand presence across global markets with localized strategies.",
-      features: ["International SEO", "Multi-region Campaigns", "Localization", "Performance Analytics"]
-    }
   ];
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section id="services" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            ⚡ {t('services.badge')}
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Our <span className="gradient-text">Services</span>
+            {t('services.heading1')} <span className="gradient-text">{t('services.heading2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive technology solutions designed to accelerate your business growth 
-            and deliver exceptional digital experiences.
+            {t('services.subtitle')}
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <Card 
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 animate-scale-on-hover border-0 shadow-lg hover:bg-card-hover"
+                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:bg-card-hover glow-on-hover relative overflow-hidden"
               >
-                <CardHeader className="pb-4">
-                  <div className="w-12 h-12 primary-gradient rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute top-0 left-0 w-full h-1 primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="pb-3">
+                  <div className="w-12 h-12 primary-gradient rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md">
                     <IconComponent className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
+                  <CardTitle className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                    {t(service.titleKey)}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {service.description}
+                  <CardDescription className="text-muted-foreground leading-relaxed text-sm">
+                    {t(service.descKey)}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
+                  <ul className="space-y-2 mb-5">
+                    {service.features.map((featureKey, idx) => (
                       <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                        {feature}
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" style={{ marginInlineEnd: '0.75rem' }} />
+                        {t(featureKey)}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full group">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <Button variant="outline" size="sm" className="w-full group/btn text-sm">
+                    {t('common.learnMore')}
+                    <ArrowRight className={`h-4 w-4 group-hover/btn:translate-x-1 transition-transform ${direction === 'rtl' ? 'mr-2 rotate-180' : 'ml-2'}`} />
                   </Button>
                 </CardContent>
               </Card>
@@ -138,10 +123,10 @@ const ServicesSection = () => {
           })}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <div className="text-center mt-16">
           <Button variant="hero" size="lg" asChild>
-            <a href="/services">View All Services</a>
+            <a href="/services">{t('common.viewAll')} →</a>
           </Button>
         </div>
       </div>

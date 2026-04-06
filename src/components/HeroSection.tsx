@@ -9,26 +9,27 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const HeroSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const { t, direction } = useLanguage();
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image */}
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background */}
       <div className="absolute inset-0 z-0" style={{
-      backgroundImage: `url(${heroImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}>
-        <div className="absolute inset-0 bg-black/40" />
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/60" />
         <div className="absolute inset-0 hero-gradient" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center mt-8">
         <div className="max-w-4xl mx-auto animate-fade-in">
-
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 text-balance px-2">
             {t('hero.title1')}
-            <span className="gradient-text block text-green-600" style={{ WebkitTextStroke: '1px white' }}>{t('hero.title2')}</span>
+            <span className="block gradient-text" style={{ WebkitTextFillColor: 'transparent' }}>{t('hero.title2')}</span>
           </h1>
 
           {/* Subheading */}
@@ -69,7 +70,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="flex justify-center mt-8 sm:mt-10">
             <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs sm:text-sm font-medium">
-              🚀 <span className={direction === 'rtl' ? 'mr-2' : 'ml-2'}>{t('hero.badge')}</span>
+              🏛️ <span className={direction === 'rtl' ? 'mr-2' : 'ml-2'}>{t('hero.badge')}</span>
             </div>
           </div>
 
@@ -82,7 +83,6 @@ const HeroSection = () => {
             <div className="text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">98%</div>
               <div className="text-white/70 text-xs sm:text-sm">{t('hero.satisfaction')}</div>
-              
               {/* Scroll Indicator */}
               <div className="mt-8 flex justify-center">
                 <div className="animate-pulse-glow">
@@ -99,6 +99,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
