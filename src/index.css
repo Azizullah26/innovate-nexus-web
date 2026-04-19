@@ -326,6 +326,104 @@
   .pause-animation {
     animation-play-state: paused;
   }
+
+  /* Reveal-on-scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Subtle parallax background helper */
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* Nav link hover — color to primary accent */
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-link:hover {
+    color: hsl(var(--primary));
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Button arrow shift on hover */
+  .btn-arrow [data-arrow],
+  .btn-arrow svg:last-child {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-arrow:hover [data-arrow],
+  .btn-arrow:hover svg:last-child {
+    transform: translateX(4px);
+  }
+  html.rtl .btn-arrow:hover [data-arrow],
+  html.rtl .btn-arrow:hover svg:last-child {
+    transform: translateX(-4px);
+  }
+
+  /* Ripple / press effect */
+  .press-effect {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  }
+  .press-effect:active {
+    transform: scale(0.97);
+  }
+  .press-effect::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, hsl(var(--primary) / 0.25) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .press-effect:active::after {
+    opacity: 1;
+    transition: opacity 0s;
+  }
+
+  /* Widget hover — shadow + border highlight + scale on click */
+  .widget-interactive {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease,
+                background-color 0.3s ease;
+    border: 1px solid hsl(var(--border));
+  }
+  .widget-interactive:hover {
+    box-shadow: 0 18px 40px -12px hsl(var(--primary) / 0.25);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+  .widget-interactive:active {
+    transform: scale(0.985);
+    background-color: hsl(var(--primary) / 0.06);
+  }
 }
 
 /* Keyframes */
