@@ -72,13 +72,13 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 reveal">
             ⚡ {t('services.badge')}
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 reveal">
             {t('services.heading1')} <span className="gradient-text">{t('services.heading2')}</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto reveal">
             {t('services.subtitle')}
           </p>
         </div>
@@ -90,7 +90,8 @@ const ServicesSection = () => {
             return (
               <Card 
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:bg-card-hover glow-on-hover relative overflow-hidden"
+                className="group widget-interactive reveal shadow-lg hover:bg-card-hover relative overflow-hidden"
+                style={{ transitionDelay: `${index * 60}ms` }}
               >
                 <div className="absolute top-0 left-0 w-full h-1 primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <CardHeader className="pb-3">
@@ -113,9 +114,9 @@ const ServicesSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" size="sm" className="w-full group/btn text-sm">
+                  <Button variant="outline" size="sm" className="w-full group/btn text-sm press-effect btn-arrow">
                     {t('common.learnMore')}
-                    <ArrowRight className={`h-4 w-4 group-hover/btn:translate-x-1 transition-transform ${direction === 'rtl' ? 'mr-2 rotate-180' : 'ml-2'}`} />
+                    <ArrowRight data-arrow className={`h-4 w-4 ${direction === 'rtl' ? 'mr-2 rotate-180' : 'ml-2'}`} />
                   </Button>
                 </CardContent>
               </Card>
@@ -124,9 +125,9 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-16">
-          <Button variant="hero" size="lg" asChild>
-            <a href="/services">{t('common.viewAll')} →</a>
+        <div className="text-center mt-16 reveal">
+          <Button variant="hero" size="lg" className="press-effect btn-arrow" asChild>
+            <a href="/services">{t('common.viewAll')} <ArrowRight data-arrow className="h-4 w-4" /></a>
           </Button>
         </div>
       </div>

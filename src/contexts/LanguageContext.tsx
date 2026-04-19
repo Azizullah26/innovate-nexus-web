@@ -105,7 +105,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.data.f4': 'Data Engineering',
 
     // Footer
-    'footer.description': 'AZMA TECH delivers AI-powered automation, intelligent agents, and enterprise digital solutions for UAE government and corporate clients.',
+    'footer.description': 'Azain Tech delivers AI-powered automation, intelligent agents, and enterprise digital solutions for UAE government and corporate clients.',
     'footer.services': 'Solutions',
     'footer.webDev': 'AI Automation',
     'footer.mobileApps': 'AI Agents',
@@ -116,7 +116,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.portfolio': 'Portfolio',
     'footer.blog': 'Blog',
     'footer.contact': 'Contact',
-    'footer.rights': '© 2025 AZMA TECH. All rights reserved.',
+    'footer.rights': '© 2025 Azain Tech. All rights reserved.',
 
     // Common
     'common.learnMore': 'Learn More',
@@ -206,7 +206,7 @@ const translations: Record<Language, Record<string, string>> = {
     'services.data.f4': 'هندسة البيانات',
 
     // Footer
-    'footer.description': 'أزما تك تقدم الأتمتة الذكية ووكلاء الذكاء الاصطناعي والحلول الرقمية المؤسسية للحكومة والشركات الإماراتية.',
+    'footer.description': 'أزاين تك تقدم الأتمتة الذكية ووكلاء الذكاء الاصطناعي والحلول الرقمية المؤسسية للحكومة والشركات الإماراتية.',
     'footer.services': 'الحلول',
     'footer.webDev': 'الأتمتة الذكية',
     'footer.mobileApps': 'وكلاء الذكاء الاصطناعي',
@@ -217,7 +217,7 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.portfolio': 'أعمالنا',
     'footer.blog': 'المدونة',
     'footer.contact': 'اتصل بنا',
-    'footer.rights': '© 2025 أزما تك. جميع الحقوق محفوظة.',
+    'footer.rights': '© 2025 أزاين تك. جميع الحقوق محفوظة.',
 
     // Common
     'common.learnMore': 'اعرف المزيد',

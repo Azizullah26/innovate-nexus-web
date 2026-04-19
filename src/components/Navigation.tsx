@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import azmaLogo from "@/assets/azma-tech-logo.png";
+import azainLogo from "@/assets/azain-tech-logo.png";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -40,10 +40,10 @@ const Navigation = () => {
           to={item.path}
           onClick={onClick}
           className={cn(
-            "text-sm font-medium transition-colors hover:text-primary",
+            "text-sm font-medium nav-link",
             location.pathname === item.path
               ? "text-primary"
-              : "text-muted-foreground",
+              : "text-foreground/80",
             mobile && "block py-2 px-4 text-base"
           )}
         >
@@ -65,8 +65,8 @@ const Navigation = () => {
       <nav className="container mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0">
-            <img src={azmaLogo} alt="AZMA TECH" className="h-8 sm:h-10 md:h-12 w-auto" />
+          <Link to="/" className="flex items-center flex-shrink-0 transition-transform duration-300 hover:scale-105">
+            <img src={azainLogo} alt="Azain Tech" className="h-9 sm:h-11 md:h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -77,7 +77,7 @@ const Navigation = () => {
           {/* Desktop CTA Button & Language Switcher */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
-            <Button variant="hero" size="sm" asChild>
+            <Button variant="hero" size="sm" className="press-effect btn-arrow" asChild>
               <Link to="/contact">{t('nav.getStarted')}</Link>
             </Button>
           </div>

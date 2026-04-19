@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
-import azmaLogo from "@/assets/azma-tech-logo.png";
+import azainLogo from "@/assets/azain-tech-logo.png";
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -97,7 +97,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@azmatech.dev",
+      details: "hello@azaintech.com",
       description: "Drop us a line anytime",
       gradient: "primary-gradient"
     },
@@ -407,7 +407,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <img src={azmaLogo} alt="AZMA TECH" className="h-10 w-auto" />
+                <img src={azainLogo} alt="Azain Tech" className="h-10 w-auto" />
               </div>
               <p className="text-background/80 mb-4 max-w-md">
                 Building the future with fullstack development, AI integration, and 
@@ -439,7 +439,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="border-t border-background/20 mt-8 pt-8 text-center text-background/60 text-sm">
-            <p>&copy; 2024 Azma Tech. All rights reserved.</p>
+            <p>&copy; 2025 Azain Tech. All rights reserved.</p>
           </div>
         </div>
       </footer>

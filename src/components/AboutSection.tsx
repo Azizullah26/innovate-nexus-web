@@ -64,8 +64,8 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            About <span className="gradient-text">Azma Tech</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 reveal">
+            About <span className="gradient-text">Azain Tech</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
             Founded in 2020, we're a passionate team of developers, designers, and innovators 
