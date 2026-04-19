@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 
 const ClientReviewsSection = () => {
   const reviews = [
@@ -104,10 +105,42 @@ const ClientReviewsSection = () => {
   // Duplicate reviews for seamless infinite scroll
   const duplicatedReviews = [...reviews, ...reviews];
 
+  // Featured testimonials for the circular carousel
+  const featuredTestimonials = [
+    {
+      quote:
+        "Azain Tech delivered an enterprise AI automation platform that cut our manual workflows by 70%. Their team understands UAE government requirements deeply.",
+      name: "Mohammed Al-Rashid",
+      designation: "CTO, Dubai Innovations",
+      src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      quote:
+        "From UAE PASS integration to a custom CRM on Odoo, they shipped on time, on budget, and the result feels truly premium. Outstanding partner.",
+      name: "Fatima Al-Maktoum",
+      designation: "Director, Emirates Business Hub",
+      src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      quote:
+        "The AI chatbot they built handles 80% of our customer queries across web and WhatsApp in Arabic and English. Game-changing automation.",
+      name: "Ahmed Hassan",
+      designation: "Head of Digital, Abu Dhabi Digital",
+      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      quote:
+        "Outstanding service! Their technical expertise helped us scale our platform to millions of users with predictive analytics dashboards.",
+      name: "Sarah Johnson",
+      designation: "VP Engineering, Global Tech Solutions",
+      src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
+    },
+  ];
+
   return (
     <section className="py-20 bg-gradient-to-b from-background to-secondary/20 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8 mb-12">
-        <div className="text-center animate-fade-in">
+        <div className="text-center animate-fade-in reveal">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Trusted by Clients <span className="gradient-text">Worldwide</span>
           </h2>
@@ -115,6 +148,27 @@ const ClientReviewsSection = () => {
             From Europe to the Middle East, businesses trust us to deliver exceptional digital solutions
           </p>
         </div>
+      </div>
+
+      {/* Featured Circular Testimonials */}
+      <div className="container mx-auto px-4 lg:px-8 mb-16 flex justify-center reveal">
+        <CircularTestimonials
+          testimonials={featuredTestimonials}
+          autoplay
+          colors={{
+            name: "hsl(var(--foreground))",
+            designation: "hsl(var(--muted-foreground))",
+            testimony: "hsl(var(--foreground) / 0.85)",
+            arrowBackground: "hsl(var(--foreground))",
+            arrowForeground: "hsl(var(--background))",
+            arrowHoverBackground: "hsl(var(--primary))",
+          }}
+          fontSizes={{
+            name: "1.5rem",
+            designation: "0.95rem",
+            quote: "1.05rem",
+          }}
+        />
       </div>
 
       {/* Infinite Scrolling Reviews */}
