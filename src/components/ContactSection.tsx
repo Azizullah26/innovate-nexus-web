@@ -79,7 +79,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@azmatech.dev",
+      details: "hello@azaintech.com",
       description: "Drop us a line anytime"
     },
     {

@@ -4,12 +4,12 @@ import { useEffect } from "react";
 
 const About = () => {
   useEffect(() => {
-    document.title = "About Us - Azma Tech | Expert Technology Solutions";
-    
+    document.title = "About Us - Azain Tech | AI & Digital Solutions for UAE Enterprises";
+
     // Meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Learn about Azma Tech - a passionate team of developers, designers, and innovators building the future through cutting-edge technology solutions since 2020.');
+      metaDescription.setAttribute('content', 'Learn about Azain Tech — UAE-based experts in AI automation, intelligent agents, CRM/ERP, UAE PASS integrations, and full-stack development for enterprise and government clients.');
     }
   }, []);
 
