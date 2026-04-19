@@ -39,16 +39,16 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
-            <Button variant="hero" size="xl" asChild className="group w-full sm:w-auto">
+            <Button variant="hero" size="xl" asChild className="group w-full sm:w-auto press-effect btn-arrow">
               <Link to="/contact">
                 {t('hero.cta')}
-                <ArrowRight className={`h-5 w-5 group-hover:translate-x-1 transition-transform ${direction === 'rtl' ? 'mr-2 rotate-180' : 'ml-2'}`} />
+                <ArrowRight data-arrow className={`h-5 w-5 ${direction === 'rtl' ? 'mr-2 rotate-180' : 'ml-2'}`} />
               </Link>
             </Button>
 
             <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
               <DialogTrigger asChild>
-                <Button variant="glass" size="xl" className="group w-full sm:w-auto">
+                <Button variant="glass" size="xl" className="group w-full sm:w-auto press-effect">
                   <Play className={direction === 'rtl' ? 'ml-2 h-5 w-5' : 'mr-2 h-5 w-5'} />
                   {t('hero.watchDemo')}
                 </Button>
