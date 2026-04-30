@@ -12,9 +12,7 @@ import {
   Code2,
   Brain,
   ArrowRight,
-  CheckCircle,
-  Clock,
-  DollarSign
+  CheckCircle
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -253,24 +251,6 @@ const Services = () => {
 
                       <div className={`bg-gradient-to-br from-primary/10 to-secondary/10 p-8 md:p-10 flex flex-col justify-between ${!isEven ? 'lg:col-start-3' : ''}`}>
                         <div className="space-y-8">
-                          <div className="flex items-start space-x-4">
-                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <DollarSign className="h-5 w-5 text-primary" />
-                            </div>
-                            <div>
-                              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-semibold">Investment</p>
-                              <p className="text-lg font-bold text-foreground">{service.pricing}</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start space-x-4">
-                            <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                              <Clock className="h-5 w-5 text-primary" />
-                            </div>
-                            <div>
-                              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 font-semibold">Timeline</p>
-                              <p className="text-lg font-bold text-foreground">{service.timeline}</p>
-                            </div>
-                          </div>
                           <div>
                             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-semibold">Technologies</p>
                             <div className="flex flex-wrap gap-2">
