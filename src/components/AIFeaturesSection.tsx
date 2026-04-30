@@ -104,26 +104,15 @@ const features = [
 const AIFeaturesSection = () => {
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Background Image with Blur */}
-      <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 blur-sm"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-black/90" />
-      </div>
+      {/* White Background */}
+      <div className="absolute inset-0 z-0 bg-white" />
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
             Supercharge your apps with AI
           </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Integrate powerful AI capabilities into your applications with our cutting-edge solutions
           </p>
         </div>
