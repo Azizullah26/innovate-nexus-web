@@ -12,9 +12,7 @@ import {
   Code2,
   Brain,
   ArrowRight,
-  CheckCircle,
-  Clock,
-  DollarSign
+  CheckCircle
 } from "lucide-react";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -214,88 +212,49 @@ const Services = () => {
         {/* Services */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="space-y-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => {
                 const IconComponent = service.icon;
-                const isEven = index % 2 === 0;
                 return (
-                  <TiltCard key={index} tiltLimit={6} scale={1.01} className="rounded-xl">
-                  <Card className="overflow-hidden border-2 border-[hsl(21_100%_50%)]/30 bg-white shadow-2xl hover:shadow-[0_25px_60px_-15px_hsl(21_100%_50%/0.45)] hover:border-[hsl(21_100%_50%)] transition-all duration-300 group animate-fade-in">
-                    <div className={`grid grid-cols-1 lg:grid-cols-3 gap-0 ${!isEven ? 'lg:grid-flow-col-dense' : ''}`}>
-                      <div className={`lg:col-span-2 p-8 md:p-10 ${!isEven ? 'lg:col-start-1' : ''}`}>
-                        <CardHeader className="p-0 mb-6">
-                          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
-                            <div className="w-16 h-16 primary-gradient rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                              <IconComponent className="h-8 w-8 text-white" />
+                  <TiltCard key={index} tiltLimit={8} scale={1.02} className="rounded-xl h-full">
+                    <Card className="h-full flex flex-col overflow-hidden border-2 border-[hsl(21_100%_50%)]/30 bg-white shadow-lg hover:shadow-[0_20px_50px_-15px_hsl(21_100%_50%/0.45)] hover:border-[hsl(21_100%_50%)] transition-all duration-300 group animate-fade-in">
+                      <CardHeader className="p-6">
+                        <div className="w-14 h-14 bg-[hsl(21_100%_50%)] rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                          <IconComponent className="h-7 w-7 text-white" />
+                        </div>
+                        <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[hsl(21_100%_50%)] transition-colors">
+                          {service.title}
+                        </CardTitle>
+                        <CardDescription className="text-sm text-gray-600 mt-2">
+                          {service.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-6 pt-0 flex-1 flex flex-col">
+                        <div className="space-y-2 mb-6 flex-1">
+                          {service.features.slice(0, 5).map((feature, idx) => (
+                            <div key={idx} className="flex items-start space-x-2">
+                              <CheckCircle className="h-4 w-4 text-[hsl(21_100%_50%)] flex-shrink-0 mt-0.5" />
+                              <span className="text-xs text-gray-600">{feature}</span>
                             </div>
-                            <div className="flex-1">
-                              <CardTitle className="text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                {service.title}
-                              </CardTitle>
-                              <CardDescription className="text-base md:text-lg">
-                                {service.description}
-                              </CardDescription>
-                            </div>
-                          </div>
-                        </CardHeader>
-                        <CardContent className="p-0">
-                          <p className="text-muted-foreground leading-relaxed mb-8 text-base">
-                            {service.fullDescription}
-                          </p>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {service.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-start space-x-3 group/item">
-                                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
-                                <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors">{feature}</span>
-                              </div>
+                          ))}
+                        </div>
+                        <div className="mb-4">
+                          <div className="flex flex-wrap gap-1.5">
+                            {service.technologies.slice(0, 4).map((tech, idx) => (
+                              <Badge key={idx} variant="secondary" className="text-[10px] px-2 py-0.5 bg-[hsl(21_100%_50%)]/10 text-[hsl(21_100%_50%)] border border-[hsl(21_100%_50%)]/20 hover:bg-[hsl(21_100%_50%)]/20">
+                                {tech}
+                              </Badge>
                             ))}
                           </div>
-                        </CardContent>
-                      </div>
-
-                      <div className={`bg-gradient-to-br from-[hsl(21_100%_50%)]/10 via-white to-[hsl(21_100%_50%)]/5 border-l border-[hsl(21_100%_50%)]/20 p-8 md:p-10 flex flex-col justify-between ${!isEven ? 'lg:col-start-3' : ''}`}>
-                        <div className="space-y-8">
-                          <div className="flex items-start space-x-4 p-4 rounded-xl bg-white border-2 border-[hsl(21_100%_50%)]/40 shadow-md hover:shadow-[0_10px_30px_-10px_hsl(21_100%_50%/0.5)] hover:border-[hsl(21_100%_50%)] transition-all duration-300">
-                            <div className="w-10 h-10 bg-[hsl(21_100%_50%)] rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                              <DollarSign className="h-5 w-5 text-white" />
-                            </div>
-                            <div>
-                              <p className="text-xs uppercase tracking-wider text-[hsl(21_100%_50%)] mb-1 font-bold">Investment</p>
-                              <p className="text-lg font-bold text-gray-900">{service.pricing}</p>
-                            </div>
-                          </div>
-                          <div className="flex items-start space-x-4 p-4 rounded-xl bg-white border-2 border-[hsl(21_100%_50%)]/40 shadow-md hover:shadow-[0_10px_30px_-10px_hsl(21_100%_50%/0.5)] hover:border-[hsl(21_100%_50%)] transition-all duration-300">
-                            <div className="w-10 h-10 bg-[hsl(21_100%_50%)] rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                              <Clock className="h-5 w-5 text-white" />
-                            </div>
-                            <div>
-                              <p className="text-xs uppercase tracking-wider text-[hsl(21_100%_50%)] mb-1 font-bold">Timeline</p>
-                              <p className="text-lg font-bold text-gray-900">{service.timeline}</p>
-                            </div>
-                          </div>
-                          <div>
-                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-semibold">Technologies</p>
-                            <div className="flex flex-wrap gap-2">
-                              {service.technologies.map((tech, idx) => (
-                                <Badge key={idx} variant="secondary" className="text-xs px-3 py-1">
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
                         </div>
-                        <div className="pt-8 space-y-3">
-                          <Button variant="hero" className="w-full group/btn">
+                        <Button variant="hero" className="w-full group/btn" asChild>
+                          <a href="/contact">
                             Get Started
                             <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                          </Button>
-                          <Button variant="outline" className="w-full" asChild>
-                            <a href="/contact">Request Quote</a>
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
+                          </a>
+                        </Button>
+                      </CardContent>
+                    </Card>
                   </TiltCard>
                 );
               })}
