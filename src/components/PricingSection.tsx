@@ -1,23 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles, TrendingUp, Building2, Smartphone } from "lucide-react";
 
 const PricingSection = () => {
-  const [currency, setCurrency] = useState<"EUR" | "AED">("EUR");
-  
-  const exchangeRate = 4; // 1 EUR ≈ 4 AED
-  
+  const [currency, setCurrency] = useState<"EUR" | "AED" | "USD">("EUR");
+
+  // Auto-detect currency by timezone region
+  useEffect(() => {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      const gccZones = ["Dubai", "Abu_Dhabi", "Muscat", "Qatar", "Bahrain", "Kuwait", "Riyadh"];
+      if (gccZones.some((z) => tz.includes(z))) {
+        setCurrency("AED");
+      } else if (tz.startsWith("America/")) {
+        // Exclude Latin America regions where USD isn't primary
+        const nonUS = ["Argentina", "Sao_Paulo", "Mexico_City", "Bogota", "Lima", "Santiago", "Caracas"];
+        if (!nonUS.some((z) => tz.includes(z))) setCurrency("USD");
+      } else if (tz.startsWith("Europe/")) {
+        setCurrency("EUR");
+      }
+    } catch {
+      // keep default EUR
+    }
+  }, []);
+
+  const rates = { EUR: 1, AED: 4, USD: 1.08 };
+  const symbols = { EUR: "€", AED: "AED ", USD: "$" };
+
   const convert = (eurPrice: string) => {
     if (currency === "EUR") return eurPrice;
-    
-    const match = eurPrice.match(/€([\d,]+)/g);
-    if (!match) return eurPrice;
-    
+    const rate = rates[currency];
+    const symbol = symbols[currency];
     return eurPrice.replace(/€([\d,]+)/g, (_, amount) => {
-      const numAmount = parseInt(amount.replace(/,/g, ''));
-      return `AED ${(numAmount * exchangeRate).toLocaleString()}`;
+      const numAmount = parseInt(amount.replace(/,/g, ""));
+      const converted = Math.round(numAmount * rate);
+      return `${symbol}${converted.toLocaleString()}`;
     });
   };
 
@@ -120,26 +139,23 @@ const PricingSection = () => {
           
           {/* Currency Toggle */}
           <div className="inline-flex items-center gap-2 p-1 bg-muted rounded-full">
-            <button
-              onClick={() => setCurrency("EUR")}
-              className={`px-6 py-2 rounded-full transition-all ${
-                currency === "EUR" 
-                  ? "bg-primary text-primary-foreground shadow-lg" 
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              🇪🇺 EUR
-            </button>
-            <button
-              onClick={() => setCurrency("AED")}
-              className={`px-6 py-2 rounded-full transition-all ${
-                currency === "AED" 
-                  ? "bg-primary text-primary-foreground shadow-lg" 
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              🇦🇪 AED
-            </button>
+            {([
+              { code: "EUR", label: "🇪🇺 EUR" },
+              { code: "AED", label: "🇦🇪 AED" },
+              { code: "USD", label: "🇺🇸 USD" },
+            ] as const).map((c) => (
+              <button
+                key={c.code}
+                onClick={() => setCurrency(c.code)}
+                className={`px-6 py-2 rounded-full transition-all ${
+                  currency === c.code
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
           </div>
         </div>
 
