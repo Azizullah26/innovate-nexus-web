@@ -12,8 +12,11 @@ import {
   Code2,
   Brain,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Clock,
+  DollarSign
 } from "lucide-react";
+import { TiltCard } from "@/components/ui/tilt-card";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
@@ -216,7 +219,8 @@ const Services = () => {
                 const IconComponent = service.icon;
                 const isEven = index % 2 === 0;
                 return (
-                  <Card key={index} className="overflow-hidden border-0 shadow-2xl transition-all duration-300 group animate-fade-in">
+                  <TiltCard key={index} tiltLimit={6} scale={1.01} className="rounded-xl">
+                  <Card className="overflow-hidden border-2 border-[hsl(21_100%_50%)]/30 bg-white shadow-2xl hover:shadow-[0_25px_60px_-15px_hsl(21_100%_50%/0.45)] hover:border-[hsl(21_100%_50%)] transition-all duration-300 group animate-fade-in">
                     <div className={`grid grid-cols-1 lg:grid-cols-3 gap-0 ${!isEven ? 'lg:grid-flow-col-dense' : ''}`}>
                       <div className={`lg:col-span-2 p-8 md:p-10 ${!isEven ? 'lg:col-start-1' : ''}`}>
                         <CardHeader className="p-0 mb-6">
@@ -249,8 +253,26 @@ const Services = () => {
                         </CardContent>
                       </div>
 
-                      <div className={`bg-gradient-to-br from-primary/10 to-secondary/10 p-8 md:p-10 flex flex-col justify-between ${!isEven ? 'lg:col-start-3' : ''}`}>
+                      <div className={`bg-gradient-to-br from-[hsl(21_100%_50%)]/10 via-white to-[hsl(21_100%_50%)]/5 border-l border-[hsl(21_100%_50%)]/20 p-8 md:p-10 flex flex-col justify-between ${!isEven ? 'lg:col-start-3' : ''}`}>
                         <div className="space-y-8">
+                          <div className="flex items-start space-x-4 p-4 rounded-xl bg-white border-2 border-[hsl(21_100%_50%)]/40 shadow-md hover:shadow-[0_10px_30px_-10px_hsl(21_100%_50%/0.5)] hover:border-[hsl(21_100%_50%)] transition-all duration-300">
+                            <div className="w-10 h-10 bg-[hsl(21_100%_50%)] rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                              <DollarSign className="h-5 w-5 text-white" />
+                            </div>
+                            <div>
+                              <p className="text-xs uppercase tracking-wider text-[hsl(21_100%_50%)] mb-1 font-bold">Investment</p>
+                              <p className="text-lg font-bold text-gray-900">{service.pricing}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-4 p-4 rounded-xl bg-white border-2 border-[hsl(21_100%_50%)]/40 shadow-md hover:shadow-[0_10px_30px_-10px_hsl(21_100%_50%/0.5)] hover:border-[hsl(21_100%_50%)] transition-all duration-300">
+                            <div className="w-10 h-10 bg-[hsl(21_100%_50%)] rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                              <Clock className="h-5 w-5 text-white" />
+                            </div>
+                            <div>
+                              <p className="text-xs uppercase tracking-wider text-[hsl(21_100%_50%)] mb-1 font-bold">Timeline</p>
+                              <p className="text-lg font-bold text-gray-900">{service.timeline}</p>
+                            </div>
+                          </div>
                           <div>
                             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-semibold">Technologies</p>
                             <div className="flex flex-wrap gap-2">
@@ -274,6 +296,7 @@ const Services = () => {
                       </div>
                     </div>
                   </Card>
+                  </TiltCard>
                 );
               })}
             </div>
