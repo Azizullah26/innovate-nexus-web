@@ -134,18 +134,20 @@ const AIFeaturesSection = () => {
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-lg bg-white/10 backdrop-blur-lg border border-white/20 p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 hover:shadow-electric"
+                className="group relative overflow-hidden rounded-xl bg-white/95 backdrop-blur-lg border-2 border-[hsl(21_100%_50%)]/40 p-6 transition-all duration-500 hover:bg-white hover:-translate-y-2 hover:border-[hsl(21_100%_50%)] hover:shadow-[0_20px_50px_-12px_hsl(21_100%_50%/0.55)] hover:scale-[1.02]"
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(21_100%_50%)]/0 via-[hsl(21_100%_50%)]/0 to-[hsl(21_100%_50%)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[hsl(21_100%_50%)]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <div className="w-12 h-12 rounded-lg bg-[hsl(21_100%_50%)]/15 border border-[hsl(21_100%_50%)]/30 flex items-center justify-center group-hover:bg-[hsl(21_100%_50%)] group-hover:border-[hsl(21_100%_50%)] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                      <Icon className="h-6 w-6 text-[hsl(21_100%_50%)] group-hover:text-white transition-colors duration-500" />
                     </div>
                   </div>
-                  <h3 className="font-semibold text-lg mb-2 text-white group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold text-lg mb-2 text-gray-900 group-hover:text-[hsl(21_100%_50%)] transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
