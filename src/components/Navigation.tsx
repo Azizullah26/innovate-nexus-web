@@ -40,10 +40,10 @@ const Navigation = () => {
           to={item.path}
           onClick={onClick}
           className={cn(
-            "text-sm font-medium nav-link",
+            "text-sm font-medium nav-link transition-colors",
             location.pathname === item.path
-              ? "text-primary"
-              : "text-foreground/80",
+              ? "text-[hsl(21_100%_50%)] font-semibold"
+              : "text-[hsl(21_100%_50%)] hover:text-[hsl(21_100%_45%)]",
             mobile && "block py-2 px-4 text-base"
           )}
         >
@@ -70,7 +70,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 px-6 py-2 rounded-full border border-[hsl(21_100%_50%)]/50 bg-[hsl(21_100%_50%)]/5 backdrop-blur-md shadow-[0_4px_24px_-8px_hsl(21_100%_50%/0.35)]">
             <NavLinks />
           </div>
 
