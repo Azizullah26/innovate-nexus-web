@@ -66,9 +66,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0 transition-transform duration-300 hover:scale-105">
-            <div className="bg-white rounded-lg p-1.5 sm:p-2 shadow-sm">
-              <img src={azainLogo} alt="Azain Tech" className="h-7 sm:h-9 md:h-11 w-auto" />
-            </div>
+            <img src={azainLogo} alt="Azain Tech" className="h-7 sm:h-9 md:h-11 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
