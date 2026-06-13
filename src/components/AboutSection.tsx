@@ -127,7 +127,7 @@ const AboutSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-12">
             Meet Our Team
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {team.map((member, index) => (
               <Card key={index} className="text-center group hover:shadow-xl transition-all duration-300 animate-scale-on-hover border-0 shadow-lg">
                 <CardContent className="p-6">
