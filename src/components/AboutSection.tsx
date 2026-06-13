@@ -31,7 +31,7 @@ const AboutSection = () => {
   const team = [
     {
       name: "Engineer Zaian",
-      role: "CEO",
+      role: "Engineer",
       image: null,
       expertise: ["Leadership", "Strategy", "Business Growth"],
       useIcon: true
