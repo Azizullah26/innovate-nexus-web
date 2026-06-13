@@ -97,7 +97,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@azaintech.com",
+      details: "info@azaintech.com",
       description: "Drop us a line anytime",
       gradient: "primary-gradient"
     },
