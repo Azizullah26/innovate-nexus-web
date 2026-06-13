@@ -30,32 +30,18 @@ const AboutSection = () => {
 
   const team = [
     {
-      name: "Aziz Ullah",
-      role: "Founder & CTO",
+      name: "Engineer Zaian",
+      role: "CEO",
+      image: null,
+      expertise: ["Leadership", "Strategy", "Business Growth"],
+      useIcon: true
+    },
+    {
+      name: "Engineer Aziz",
+      role: "Engineer",
       image: azizPhoto,
       expertise: ["Full-stack Development", "AI/ML", "System Architecture"],
       useIcon: false
-    },
-    {
-      name: "Muhammad Jawad",
-      role: "Odoo Developer ERP",
-      expertise: ["Odoo ERP", "Python", "Business Solutions"],
-      useIcon: true,
-      gender: "male"
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "DevOps Engineer",
-      expertise: ["Cloud Infrastructure", "Docker/K8s", "CI/CD"],
-      useIcon: true,
-      gender: "male"
-    },
-    {
-      name: "Emily Park",
-      role: "AI Specialist",
-      expertise: ["Machine Learning", "Data Science", "Python/TensorFlow"],
-      useIcon: true,
-      gender: "female"
     }
   ];
 
