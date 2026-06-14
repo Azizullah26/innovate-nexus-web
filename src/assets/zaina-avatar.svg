@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#4DB6AC"/>
+    </linearGradient>
+    <clipPath id="avatarClip">
+      <circle cx="100" cy="100" r="100"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgGrad)"/>
+
+  <!-- Subtle pattern overlay -->
+  <circle cx="100" cy="100" r="100" fill="white" fill-opacity="0.06"/>
+
+  <!-- Body / professional blazer -->
+  <ellipse cx="100" cy="190" rx="70" ry="52" fill="#1E293B"/>
+  <!-- Blazer lapels -->
+  <path d="M72 160 L85 148 L100 175 L115 148 L128 160 L128 200 L72 200 Z" fill="#0F172A"/>
+  <!-- Shirt/blouse underneath -->
+  <path d="M88 148 L100 175 L112 148 L100 145 Z" fill="#F1F5F9"/>
+
+  <!-- Neck -->
+  <rect x="88" y="118" width="24" height="22" rx="4" fill="#F3C98E"/>
+
+  <!-- Head -->
+  <ellipse cx="100" cy="96" rx="34" ry="37" fill="#F3C98E"/>
+
+  <!-- Hair — elegant professional style -->
+  <!-- Top of head / part -->
+  <path d="M66 90 Q66 52 100 50 Q134 52 134 90 L134 80 Q130 48 100 46 Q70 48 66 80 Z" fill="#2C1810"/>
+  <!-- Side and back hair -->
+  <ellipse cx="100" cy="68" rx="36" ry="22" fill="#2C1810"/>
+  <!-- Hair flowing sides -->
+  <path d="M66 80 Q62 95 64 112 Q68 108 70 100 L70 82 Z" fill="#2C1810"/>
+  <path d="M134 80 Q138 95 136 112 Q132 108 130 100 L130 82 Z" fill="#2C1810"/>
+  <!-- Ear hint -->
+  <ellipse cx="66" cy="98" rx="6" ry="8" fill="#F3C98E"/>
+  <ellipse cx="134" cy="98" rx="6" ry="8" fill="#F3C98E"/>
+
+  <!-- Eyebrows -->
+  <path d="M82 80 Q88 76 94 79" stroke="#2C1810" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M106 79 Q112 76 118 80" stroke="#2C1810" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Eyes -->
+  <ellipse cx="90" cy="90" rx="7" ry="6" fill="white"/>
+  <circle cx="90" cy="91" r="4" fill="#2C1810"/>
+  <circle cx="91.5" cy="89.5" r="1.5" fill="white"/>
+
+  <ellipse cx="110" cy="90" rx="7" ry="6" fill="white"/>
+  <circle cx="110" cy="91" r="4" fill="#2C1810"/>
+  <circle cx="111.5" cy="89.5" r="1.5" fill="white"/>
+
+  <!-- Nose -->
+  <path d="M97 97 Q100 102 103 97" stroke="#D4A574" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Smile -->
+  <path d="M88 111 Q100 120 112 111" stroke="#C9835A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Subtle lip color -->
+  <path d="M91 114 Q100 119 109 114 Q100 118 91 114 Z" fill="#C9835A" fill-opacity="0.5"/>
+
+  <!-- Small earring detail -->
+  <circle cx="66" cy="106" r="3" fill="#FF6B35"/>
+  <circle cx="134" cy="106" r="3" fill="#FF6B35"/>
+</svg>

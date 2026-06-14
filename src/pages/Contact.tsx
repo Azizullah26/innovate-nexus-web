@@ -17,16 +17,23 @@ import {
   ArrowRight,
   Globe,
   Users,
-  Zap
+  Zap,
+  CheckCircle2,
+  ShieldCheck,
+  Headphones
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import azainLogo from "@/assets/azain-tech-logo.png";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { EnterpriseDashboardMockup } from "@/components/EnterpriseVisuals";
 
 const Contact = () => {
   const { language } = useLanguage();
   const { toast } = useToast();
   const [currency, setCurrency] = useState<'AED' | 'EUR'>('EUR');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
     fetch('https://ipapi.co/json/')
@@ -62,6 +69,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const { data, error } = await supabase.functions.invoke('contact-form', {
@@ -74,6 +82,7 @@ const Contact = () => {
         title: "Message Sent Successfully! ✅",
         description: "Thank you for reaching out. We'll get back to you within 24 hours with a free consultation.",
       });
+      setHasSubmitted(true);
       setFormData({
         name: '',
         email: '',
@@ -90,6 +99,8 @@ const Contact = () => {
         description: "Please try again or email us directly at azizkhanlinkedin@gmail.com",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -113,14 +124,14 @@ const Contact = () => {
       title: "Visit Us",
       details: "Dubai",
       description: "Come say hello at our office",
-      gradient: "electric-gradient"
+      gradient: "primary-gradient"
     },
     {
       icon: Clock,
       title: "Response Time",
       details: "< 24 Hours",
       description: "We respond to all inquiries quickly",
-      gradient: "silver-gradient"
+      gradient: "secondary-gradient"
     }
   ];
 
@@ -154,38 +165,66 @@ const Contact = () => {
     { icon: Zap, label: "Success Rate", value: "98%" }
   ];
 
+  const faqs = [
+    {
+      question: "How quickly can Azain Tech start a project?",
+      answer: "Most discovery calls happen within 24 hours. For scoped projects, we typically begin strategy and UX architecture within one business week after requirements are confirmed."
+    },
+    {
+      question: "Do you support UAE PASS and government integrations?",
+      answer: "Yes. We design and implement UAE PASS authentication, government API connections, secure OAuth flows, Arabic-first interfaces, and compliance-aware workflows."
+    },
+    {
+      question: "Can you work with our existing website or CRM?",
+      answer: "Yes. We can audit your current stack, improve conversion and UX, integrate CRM/ERP systems, or rebuild critical modules while preserving business continuity."
+    },
+    {
+      question: "What happens after launch?",
+      answer: "We provide launch monitoring, analytics, documentation, performance tuning, and optional support retainers for iteration, automation, and growth."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-12 sm:py-16 md:py-20 hero-gradient">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto animate-fade-in">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 px-2">
-                Let's Build Something <span className="gradient-text">Extraordinary</span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-                Ready to transform your vision into reality? Connect with our expert team and
-                discover how we can accelerate your digital transformation journey.
-              </p>
+        <section className="relative overflow-hidden py-14 sm:py-16 md:py-24 bg-foreground">
+          <div className="absolute inset-0 dot-bg-dark opacity-70 pointer-events-none" />
+          <div className="absolute right-0 top-8 h-64 w-[44vw] bg-gradient-to-l from-primary/18 to-transparent blur-3xl" />
+          <div className="container relative mx-auto px-4 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div className="animate-fade-in">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-medium mb-6">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  Strategy call within 24 hours
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+                  Let's build something <span className="gradient-text-animated">enterprise-ready</span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-white/65 mb-6 sm:mb-8 max-w-2xl leading-relaxed">
+                  Tell us what you want to improve, automate, or launch. We'll map the right product,
+                  workflow, and technical path for your team.
+                </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+              <div className="grid grid-cols-3 gap-3 sm:gap-5 mt-8 sm:mt-12">
                 {stats.map((stat, index) => {
                   const IconComponent = stat.icon;
                   return (
-                    <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 primary-gradient rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                        <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                    <div key={index} className="text-center rounded-xl border border-white/10 bg-white/6 p-3 sm:p-4 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 primary-gradient rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                        <IconComponent className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                       </div>
-                      <div className="text-xl sm:text-2xl font-bold text-foreground">{stat.value}</div>
-                      <div className="text-sm sm:text-base text-muted-foreground">{stat.label}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white">{stat.value}</div>
+                      <div className="text-[11px] sm:text-xs text-white/50">{stat.label}</div>
                     </div>
                   );
                 })}
               </div>
+              </div>
+              <EnterpriseDashboardMockup className="hidden lg:block drop-shadow-2xl" />
             </div>
           </div>
         </section>
@@ -202,6 +241,17 @@ const Contact = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  {hasSubmitted && (
+                    <div className="mb-6 rounded-xl border border-success/25 bg-success/10 p-4 text-sm text-foreground">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-success" />
+                        <div>
+                          <p className="font-semibold">Your request is in our pipeline.</p>
+                          <p className="text-muted-foreground">We'll review the brief and respond with next steps within 24 hours.</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -316,8 +366,8 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" variant="hero" size="lg" className="w-full h-14 text-lg">
-                      Send Message & Get Free Consultation
+                    <Button type="submit" variant="hero" size="lg" className="w-full h-14 text-lg" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message & Get Free Consultation"}
                       <Send className="ml-2 h-5 w-5" />
                     </Button>
                   </form>
@@ -379,24 +429,78 @@ const Contact = () => {
               </div>
 
               {/* Newsletter */}
-              <Card className="border-0 shadow-lg primary-gradient text-white">
+              <Card className="border-0 shadow-lg bg-foreground text-white overflow-hidden">
                 <CardContent className="p-6">
-                  <h4 className="font-bold text-xl mb-2">Stay Connected</h4>
-                  <p className="text-white/80 mb-4">
-                    Subscribe to get the latest tech insights, project updates, and exclusive offers.
+                  <h4 className="font-bold text-xl mb-2">Enterprise response standard</h4>
+                  <p className="text-white/70 mb-5">
+                    Every enquiry receives a structured response with recommended next steps, risks, and estimated delivery path.
                   </p>
                   <div className="space-y-3">
-                    <Input 
-                      placeholder="Enter your email"
-                      className="bg-white/20 border-white/30 text-white placeholder:text-white/60 h-12"
-                    />
-                    <Button variant="glass" size="sm" className="w-full h-10">
-                      Subscribe to Newsletter
-                    </Button>
+                    {[
+                      { icon: ShieldCheck, label: "Confidential project handling" },
+                      { icon: Headphones, label: "Direct technical consultation" },
+                      { icon: CheckCircle2, label: "Clear scope before commitment" },
+                    ].map(({ icon: Icon, label }) => (
+                      <div key={label} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/6 p-3 text-sm text-white/75">
+                        <Icon className="h-4 w-4 text-primary" />
+                        {label}
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
             </div>
+          </div>
+
+          <div className="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <Card className="border border-border/70 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl">Dubai Office</CardTitle>
+                <CardDescription>Serving UAE government, enterprise, and growth-stage teams.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="rounded-xl border border-border/70 bg-muted/50 p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="h-11 w-11 rounded-lg primary-gradient flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Dubai, United Arab Emirates</p>
+                      <p className="text-sm text-muted-foreground">Remote-first delivery across the GCC and global markets</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="rounded-lg bg-background p-3 border border-border/60">
+                      <p className="font-semibold text-foreground">Hours</p>
+                      <p className="text-muted-foreground">Mon-Fri, 9:00-18:00 GST</p>
+                    </div>
+                    <div className="rounded-lg bg-background p-3 border border-border/60">
+                      <p className="font-semibold text-foreground">Languages</p>
+                      <p className="text-muted-foreground">English and Arabic</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/70 shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl">Frequently Asked Questions</CardTitle>
+                <CardDescription>Quick answers before we speak.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Accordion type="single" collapsible className="w-full">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={faq.question} value={`faq-${index}`}>
+                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground leading-relaxed">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>

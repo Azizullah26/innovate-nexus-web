@@ -65,8 +65,18 @@ const Navigation = () => {
       <nav className="container mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0 transition-transform duration-300 hover:scale-105">
-            <img src={azainLogo} alt="Azain Tech" className="h-7 sm:h-9 md:h-11 w-auto" />
+          <Link
+            to="/"
+            className="flex items-center flex-shrink-0 hover:scale-105 hover:opacity-90 transition-all duration-300"
+          >
+            <img
+              src={azainLogo}
+              alt="Azain Tech"
+              className={cn(
+                "h-8 sm:h-9 md:h-10 w-auto transition-all duration-300",
+                isScrolled ? "" : "brightness-0 invert"
+              )}
+            />
           </Link>
 
           {/* Desktop Navigation */}

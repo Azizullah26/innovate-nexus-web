@@ -15,9 +15,11 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,87 +36,61 @@ const ContactSection = () => {
     });
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/mblpjnka', {
+      const response = await fetch('https://formsubmit.co/ajax/info@azaintech.com', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `New Project Enquiry from ${formData.name}${formData.company ? ` (${formData.company})` : ''}`,
+          _captcha: 'false',
+          _template: 'table',
+          Name: formData.name,
+          Email: formData.email,
+          Company: formData.company || '—',
+          'Project Type': formData.project || '—',
+          Budget: formData.budget || '—',
+          Message: formData.message,
+        }),
       });
 
-      if (response.ok) {
+      const json = await response.json();
+
+      if (response.ok && json.success === 'true') {
         toast({
-          title: "Message Sent!",
-          description: "Thank you for your interest. We'll get back to you within 24 hours.",
+          title: t('contact.toast.title'),
+          description: t('contact.toast.desc'),
         });
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          project: '',
-          budget: '',
-          message: ''
-        });
+        setFormData({ name: '', email: '', company: '', project: '', budget: '', message: '' });
       } else {
-        toast({
-          title: "Error",
-          description: "Failed to send message. Please try again.",
-          variant: "destructive"
-        });
+        throw new Error('Submission rejected');
       }
-    } catch (error) {
+    } catch {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive"
+        title: t('contact.toast.errTitle'),
+        description: t('contact.toast.errDesc'),
+        variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: "info@azaintech.com",
-      description: "Drop us a line anytime"
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: "+971509363002",
-      description: "Mon-Fri from 8am to 5pm"
-    },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: "Dubai UAE",
-      description: "Come say hello at our office"
-    },
-    {
-      icon: Clock,
-      title: "Response Time",
-      details: "< 24 Hours",
-      description: "We respond to all inquiries quickly"
-    }
+    { icon: Mail,    titleKey: 'contact.info.email.title', details: "info@azaintech.com",  descKey: 'contact.info.email.desc' },
+    { icon: Phone,   titleKey: 'contact.info.phone.title', details: "+971509363002",        descKey: 'contact.info.phone.desc' },
+    { icon: MapPin,  titleKey: 'contact.info.map.title',   details: "Dubai UAE",            descKey: 'contact.info.map.desc' },
+    { icon: Clock,   titleKey: 'contact.info.time.title',  details: "< 24 Hours",           descKey: 'contact.info.time.desc' },
   ];
 
   const quickActions = [
-    {
-      icon: MessageSquare,
-      title: "Free Consultation",
-      description: "30-minute strategy session",
-      action: "Book Now"
-    },
-    {
-      icon: Calendar,
-      title: "Schedule Demo",
-      description: "See our solutions in action",
-      action: "Schedule"
-    }
+    { icon: MessageSquare, titleKey: 'contact.action.consult.title', descKey: 'contact.action.consult.desc', btnKey: 'contact.action.consult.btn' },
+    { icon: Calendar,      titleKey: 'contact.action.demo.title',    descKey: 'contact.action.demo.desc',    btnKey: 'contact.action.demo.btn' },
   ];
 
   return (
@@ -123,11 +99,10 @@ const ContactSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Let's Build Something <span className="gradient-text">Amazing</span>
+            {t('contact.heading1')} <span className="gradient-text">{t('contact.heading2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your idea into reality? Get in touch with our team and 
-            let's discuss how we can help accelerate your business growth.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -136,20 +111,20 @@ const ContactSection = () => {
           <div className="lg:col-span-2">
             <Card className="border-0 shadow-xl">
               <CardHeader className="pb-6">
-                <CardTitle className="text-2xl font-bold text-foreground">Start Your Project</CardTitle>
+                <CardTitle className="text-2xl font-bold text-foreground">{t('contact.form.heading')}</CardTitle>
                 <CardDescription>
-                  Fill out the form below and we'll get back to you within 24 hours with a detailed proposal.
+                  {t('contact.form.subheading')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input 
+                      <Label htmlFor="name">{t('contact.form.name')}</Label>
+                      <Input
                         id="name"
                         name="name"
-                        placeholder="John Doe"
+                        placeholder={t('contact.form.namePh')}
                         value={formData.name}
                         onChange={handleInputChange}
                         required
@@ -157,8 +132,8 @@ const ContactSection = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input 
+                      <Label htmlFor="email">{t('contact.form.email')}</Label>
+                      <Input
                         id="email"
                         name="email"
                         type="email"
@@ -173,26 +148,26 @@ const ContactSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="company">Company</Label>
-                      <Input 
+                      <Label htmlFor="company">{t('contact.form.company')}</Label>
+                      <Input
                         id="company"
                         name="company"
-                        placeholder="Company Name"
+                        placeholder={t('contact.form.companyPh')}
                         value={formData.company}
                         onChange={handleInputChange}
                         className="mt-2"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="budget">Project Budget</Label>
-                      <select 
+                      <Label htmlFor="budget">{t('contact.form.budget')}</Label>
+                      <select
                         id="budget"
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
                         className="w-full mt-2 px-3 py-2 border border-input bg-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                       >
-                        <option value="">Select Budget Range</option>
+                        <option value="">{t('contact.form.budgetPh')}</option>
                         <option value="5k-15k">$5,000 - $15,000</option>
                         <option value="15k-50k">$15,000 - $50,000</option>
                         <option value="50k-100k">$50,000 - $100,000</option>
@@ -202,15 +177,15 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="project">Project Type</Label>
-                    <select 
+                    <Label htmlFor="project">{t('contact.form.project')}</Label>
+                    <select
                       id="project"
                       name="project"
                       value={formData.project}
                       onChange={handleInputChange}
                       className="w-full mt-2 px-3 py-2 border border-input bg-background rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     >
-                      <option value="">Select Project Type</option>
+                      <option value="">{t('contact.form.projectPh')}</option>
                       <option value="web-app">Web Application</option>
                       <option value="mobile-app">Mobile Application</option>
                       <option value="ai-integration">AI Integration</option>
@@ -221,11 +196,11 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Project Details *</Label>
-                    <Textarea 
+                    <Label htmlFor="message">{t('contact.form.message')}</Label>
+                    <Textarea
                       id="message"
                       name="message"
-                      placeholder="Tell us about your project, timeline, and any specific requirements..."
+                      placeholder={t('contact.form.messagePh')}
                       rows={6}
                       value={formData.message}
                       onChange={handleInputChange}
@@ -234,9 +209,9 @@ const ContactSection = () => {
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full">
-                    Send Message
-                    <Send className="ml-2 h-5 w-5" />
+                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
+                    {!isSubmitting && <Send className="ml-2 h-5 w-5" />}
                   </Button>
                 </form>
               </CardContent>
@@ -248,7 +223,7 @@ const ContactSection = () => {
             {/* Contact Information */}
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-foreground">Get In Touch</CardTitle>
+                <CardTitle className="text-xl font-bold text-foreground">{t('contact.info.heading')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {contactInfo.map((info, index) => {
@@ -259,9 +234,9 @@ const ContactSection = () => {
                         <IconComponent className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground">{info.title}</h4>
+                        <h4 className="font-semibold text-foreground">{t(info.titleKey)}</h4>
                         <p className="text-primary font-medium">{info.details}</p>
-                        <p className="text-muted-foreground text-sm">{info.description}</p>
+                        <p className="text-muted-foreground text-sm">{t(info.descKey)}</p>
                       </div>
                     </div>
                   );
@@ -281,8 +256,8 @@ const ContactSection = () => {
                           <IconComponent className="h-6 w-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-foreground">{action.title}</h4>
-                          <p className="text-muted-foreground text-sm">{action.description}</p>
+                          <h4 className="font-semibold text-foreground">{t(action.titleKey)}</h4>
+                          <p className="text-muted-foreground text-sm">{t(action.descKey)}</p>
                         </div>
                         <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -295,17 +270,15 @@ const ContactSection = () => {
             {/* Newsletter */}
             <Card className="border-0 shadow-lg primary-gradient text-white">
               <CardContent className="p-6">
-                <h4 className="font-bold text-lg mb-2">Stay Updated</h4>
-                <p className="text-white/80 text-sm mb-4">
-                  Get the latest tech insights and industry trends delivered to your inbox.
-                </p>
+                <h4 className="font-bold text-lg mb-2">{t('contact.news.title')}</h4>
+                <p className="text-white/80 text-sm mb-4">{t('contact.news.sub')}</p>
                 <div className="flex space-x-2">
-                  <Input 
-                    placeholder="Enter your email"
+                  <Input
+                    placeholder={t('contact.news.ph')}
                     className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
                   />
                   <Button variant="glass" size="sm">
-                    Subscribe
+                    {t('contact.news.btn')}
                   </Button>
                 </div>
               </CardContent>

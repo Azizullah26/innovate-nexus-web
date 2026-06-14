@@ -1,14 +1,26 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, TrendingUp } from "lucide-react";
+import { BeforeAfterComparison } from "@/components/EnterpriseVisuals";
+import { ProjectVisual, type ProjectVisualVariant } from "@/components/ProjectVisual";
+
+type PortfolioPreviewProject = {
+  title: string;
+  description: string;
+  visual: ProjectVisualVariant;
+  tags: string[];
+  category: string;
+  results: string;
+  liveUrl: string;
+};
 
 const PortfolioSection = () => {
-  const projects = [
+  const projects: PortfolioPreviewProject[] = [
     {
       title: "Ronin - Gaming Audio E-Commerce",
       description: "Advanced e-commerce platform for premium gaming earbuds featuring software-based audio technology with ultra-low latency for gamers.",
-      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+      visual: "ronin",
       tags: ["Shopify", "React", "E-Commerce", "Payment Integration"],
       category: "E-Commerce",
       results: "Premium gaming audio brand in Pakistan",
@@ -17,7 +29,7 @@ const PortfolioSection = () => {
     {
       title: "Misk Foundation",
       description: "Digital platform for Mohammed Bin Salman Foundation, empowering and connecting young leaders, innovators, and entrepreneurs globally.",
-      image: "https://misk.org.sa/wp-content/uploads/2025/04/news28.jpg",
+      visual: "misk",
       tags: ["Next.js", "CMS", "Multilingual", "Enterprise"],
       category: "Non-Profit",
       results: "Empowering youth across Saudi Arabia",
@@ -26,7 +38,7 @@ const PortfolioSection = () => {
     {
       title: "El Race Contracting",
       description: "Modern construction company website showcasing projects, services, and career opportunities for a leading UAE-based contractor.",
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+      visual: "elraceWeb",
       tags: ["React", "CMS", "Portfolio", "Responsive Design"],
       category: "Construction",
       results: "Building the future in UAE",
@@ -35,7 +47,7 @@ const PortfolioSection = () => {
     {
       title: "Saleh Sallom Jewelry",
       description: "Premium luxury jewelry e-commerce platform featuring natural diamonds, lab-grown diamonds, and customized jewelry with secure shopping experience.",
-      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+      visual: "jewelry",
       tags: ["Shopify", "E-Commerce", "Luxury", "Payment Gateway"],
       category: "E-Commerce",
       results: "Certified premium jewelry marketplace",
@@ -44,7 +56,7 @@ const PortfolioSection = () => {
     {
       title: "El Race Operations App",
       description: "Mobile operations management application for El Race Contracting, streamlining construction project management and field operations.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+      visual: "elraceApp",
       tags: ["React Native", "Mobile App", "Operations", "Project Management"],
       category: "Mobile App",
       results: "10+ downloads, efficient operations",
@@ -53,7 +65,7 @@ const PortfolioSection = () => {
     {
       title: "Story Hero - AI Bedtime Stories",
       description: "AI-powered mobile app that creates completely unique, personalized bedtime stories with custom characters, genres, and beautiful illustrations.",
-      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80",
+      visual: "storyHero",
       tags: ["React Native", "AI", "Mobile App", "Image Generation"],
       category: "Mobile App",
       results: "Magical storytelling experiences",
@@ -62,7 +74,7 @@ const PortfolioSection = () => {
     {
       title: "SmartHair - AI Hair Analysis",
       description: "AI-powered hair care app that analyzes your hair from a photo and creates personalized routines based on your unique hair type, porosity, and lifestyle.",
-      image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80",
+      visual: "smartHair",
       tags: ["React Native", "AI", "Mobile App", "Computer Vision"],
       category: "Mobile App",
       results: "4.8 rating, personalized hair care",
@@ -71,7 +83,7 @@ const PortfolioSection = () => {
     {
       title: "EchoMood - AI Journaling",
       description: "Emotional journaling app with AI-generated personalized responses, text-to-speech playback, and multiple AI personas for deeper self-awareness.",
-      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+      visual: "echoMood",
       tags: ["React Native", "AI", "Mobile App", "Text-to-Speech"],
       category: "Mobile App",
       results: "Premium AI journaling experience",
@@ -102,10 +114,10 @@ const PortfolioSection = () => {
             >
               {/* Project Image */}
               <div className="relative overflow-hidden h-48 bg-gradient-to-br from-primary/20 to-accent/20">
-                <img 
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                <ProjectVisual
+                  variant={project.visual}
+                  title={`${project.title} project visual`}
+                  className="transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-3">
@@ -144,8 +156,9 @@ const PortfolioSection = () => {
 
                 {/* Results */}
                 <div className="mb-4 p-3 bg-success/10 rounded-lg border border-success/20">
-                  <p className="text-sm font-medium text-success-foreground">
-                    📈 {project.results}
+                  <p className="text-sm font-medium text-foreground flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4 text-success" />
+                    {project.results}
                   </p>
                 </div>
 
@@ -158,6 +171,20 @@ const PortfolioSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center rounded-2xl border border-border/70 bg-muted/40 p-6 md:p-8 reveal">
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-primary">Case study method</p>
+            <h3 className="mb-4 text-2xl md:text-3xl font-bold text-foreground">
+              Every portfolio build is measured against business movement.
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              We pair interface quality with operational outcomes: faster workflows, clearer analytics,
+              higher conversion, stronger automation, and systems your internal team can actually run.
+            </p>
+          </div>
+          <BeforeAfterComparison />
         </div>
 
         {/* CTA Section */}

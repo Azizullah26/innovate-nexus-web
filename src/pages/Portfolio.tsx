@@ -2,19 +2,40 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Calendar, Users, TrendingUp, Star } from "lucide-react";
+import { ExternalLink, Github, Calendar, Users, TrendingUp, Star, SlidersHorizontal, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { BeforeAfterComparison, EnterpriseDashboardMockup } from "@/components/EnterpriseVisuals";
+import { ProjectVisual, type ProjectVisualVariant } from "@/components/ProjectVisual";
+
+type PortfolioProject = {
+  id: number;
+  title: string;
+  description: string;
+  longDescription: string;
+  visual: ProjectVisualVariant;
+  tags: string[];
+  category: string;
+  client: string;
+  duration: string;
+  teamSize: string;
+  results: string[];
+  features: string[];
+  liveUrl: string;
+  githubUrl: string;
+  testimonial: string;
+  rating: number;
+};
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
 
-  const projects = [
+  const projects: PortfolioProject[] = [
     {
       id: 1,
       title: "Ronin - Gaming Audio E-Commerce",
       description: "Advanced e-commerce platform for premium gaming earbuds featuring software-based audio technology with ultra-low latency.",
       longDescription: "Developed a comprehensive e-commerce platform for Ronin, a leading gaming audio brand in Pakistan. The platform features advanced product showcasing, seamless payment integration, product customization options, and an optimized checkout experience. The site showcases cutting-edge gaming earbuds with features like 28ms ultra-low latency, fidget spinner designs, and hybrid ANC technology.",
-      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+      visual: "ronin",
       tags: ["Shopify", "React", "E-Commerce", "Payment Integration", "Responsive Design"],
       category: "ecommerce",
       client: "Ronin Audio",
@@ -44,7 +65,7 @@ const Portfolio = () => {
       title: "Misk Foundation",
       description: "Digital platform for Mohammed Bin Salman Foundation, empowering young leaders, innovators, and entrepreneurs globally.",
       longDescription: "Created a comprehensive digital platform for Misk Foundation, one of Saudi Arabia's leading non-profit organizations. The platform showcases various initiatives including the Misk Global Forum, ilmi science initiative, and numerous youth empowerment programs. Features include multilingual support (Arabic/English), event management, program showcases, and a media center for news and updates.",
-      image: "https://misk.org.sa/wp-content/uploads/2025/04/news28.jpg",
+      visual: "misk",
       tags: ["Next.js", "CMS", "Multilingual", "Enterprise", "Responsive Design"],
       category: "nonprofit",
       client: "Misk Foundation",
@@ -74,7 +95,7 @@ const Portfolio = () => {
       title: "El Race Contracting",
       description: "Modern construction company website showcasing projects, services, and career opportunities for a leading UAE-based contractor.",
       longDescription: "Designed and developed a professional website for El Race Contracting, a prominent construction company in the UAE. The platform features comprehensive service showcases, project portfolio, career opportunities, and detailed company information. The site emphasizes quality, innovation, and sustainability in construction, with bilingual support (English/Arabic) and a modern, professional design.",
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+      visual: "elraceWeb",
       tags: ["React", "CMS", "Portfolio", "Responsive Design", "Bilingual"],
       category: "construction",
       client: "El Race Contracting",
@@ -104,7 +125,7 @@ const Portfolio = () => {
       title: "Saleh Sallom Jewelry",
       description: "Premium luxury jewelry e-commerce platform featuring natural diamonds, lab-grown diamonds, and customized jewelry.",
       longDescription: "Built a sophisticated e-commerce platform for Saleh Sallom, a premium jewelry brand specializing in natural and lab-grown diamonds. The platform features secure shopping with certificate verification, maintenance warranty, free shipping, and comprehensive product showcases including diamond jewelry, opal jewelry, precious stones, and customized pieces. Integrated with advanced payment gateways and featuring an elegant, luxury-focused design.",
-      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+      visual: "jewelry",
       tags: ["Shopify", "E-Commerce", "Luxury", "Payment Gateway", "Certificate Management"],
       category: "ecommerce",
       client: "Saleh Sallom",
@@ -134,7 +155,7 @@ const Portfolio = () => {
       title: "El Race Operations App",
       description: "Mobile operations management application for construction project management and field operations.",
       longDescription: "Developed a comprehensive mobile operations application for El Race Contracting to streamline construction project management and field operations. The app enables real-time project tracking, team management, documentation, and communication between field teams and management. Features include offline capabilities, photo documentation, task management, and progress reporting.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+      visual: "elraceApp",
       tags: ["React Native", "Mobile App", "Operations", "Project Management", "Offline Support"],
       category: "mobile",
       client: "El Race Contracting",
@@ -164,7 +185,7 @@ const Portfolio = () => {
       title: "Story Hero - AI Bedtime Stories",
       description: "AI-powered mobile app creating completely unique, personalized bedtime stories with custom characters and beautiful illustrations.",
       longDescription: "Developed Story Hero, an innovative AI-powered mobile application that transforms bedtime storytelling. The app allows parents to create completely unique, one-of-a-kind stories in minutes featuring custom characters with unique personalities, appearances, and traits. Users can choose from any genre - pirates, mysteries, space adventures, or create custom themes. The app uses the highest quality AI image generation technology to create stunning, consistent artwork for every story, making each tale truly magical and memorable.",
-      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80",
+      visual: "storyHero",
       tags: ["React Native", "AI", "Mobile App", "Image Generation", "Text Generation"],
       category: "mobile",
       client: "Happii Apps",
@@ -194,7 +215,7 @@ const Portfolio = () => {
       title: "SmartHair - AI Hair Analysis",
       description: "AI-powered hair care app that analyzes hair from photos and creates personalized routines based on unique hair type and lifestyle.",
       longDescription: "Built SmartHair, an innovative AI-powered mobile application that revolutionizes personal hair care. The app analyzes your hair type, texture, and condition from a single photo to create a personalized hair blueprint. Using advanced computer vision and AI, it identifies hair classification, moisture retention, strand density, and porosity. Users receive customized daily and weekly routines that fit their lifestyle and hair goals, eliminating the need for lengthy questionnaires. With a 4.8 rating from early users, SmartHair makes professional hair analysis accessible to everyone.",
-      image: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80",
+      visual: "smartHair",
       tags: ["React Native", "AI", "Mobile App", "Computer Vision", "Personalization"],
       category: "mobile",
       client: "SmartHair",
@@ -224,7 +245,7 @@ const Portfolio = () => {
       title: "EchoMood - AI Journaling",
       description: "Emotional journaling app with AI-generated personalized responses, text-to-speech playback, and multiple AI personas.",
       longDescription: "Created EchoMood, a transformative emotional journaling application that uses AI to provide personalized echo responses to journal entries. The app features multiple AI personas with distinct communication styles, allowing users to receive tailored insights that match their emotional patterns. Powered by ElevenLabs text-to-speech technology, users can listen to their personalized insights with high-quality audio. The app includes a flexible credit-based system, comprehensive journal management, and both free and premium AI personas, making emotional intelligence accessible and engaging.",
-      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+      visual: "echoMood",
       tags: ["React Native", "AI", "Mobile App", "Text-to-Speech", "NLP"],
       category: "mobile",
       client: "EchoMood",
@@ -268,22 +289,49 @@ const Portfolio = () => {
       <Navigation />
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
-          <div className="container mx-auto px-4 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Our <span className="gradient-text">Portfolio</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore our successful projects that have transformed businesses across various industries, 
-              delivering exceptional results and driving growth.
-            </p>
+        <section className="relative overflow-hidden py-20 md:py-28 bg-foreground">
+          <div className="absolute inset-0 dot-bg-dark opacity-70 pointer-events-none" />
+          <div className="absolute left-0 top-10 h-60 w-[40vw] bg-gradient-to-r from-primary/20 to-transparent blur-3xl" />
+          <div className="container relative mx-auto px-4 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-medium mb-6">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  Enterprise case studies
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  Portfolio that proves <span className="gradient-text-animated">business impact</span>
+                </h1>
+                <p className="text-lg md:text-xl text-white/65 max-w-2xl leading-relaxed">
+                  Explore digital products, commerce platforms, mobile apps, and AI experiences
+                  designed around conversion, reliability, and measurable adoption.
+                </p>
+                <div className="mt-8 grid grid-cols-3 gap-3 max-w-xl">
+                  {[
+                    ["8", "Featured builds"],
+                    ["5", "Industries"],
+                    ["100%", "Responsive"],
+                  ].map(([value, label]) => (
+                    <div key={label} className="rounded-xl border border-white/10 bg-white/6 p-4 text-center">
+                      <div className="text-2xl font-extrabold gradient-text">{value}</div>
+                      <div className="text-xs text-white/50">{label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <EnterpriseDashboardMockup className="drop-shadow-2xl" />
+            </div>
           </div>
         </section>
 
         {/* Filter Section */}
-        <section className="py-8 bg-secondary/30">
+        <section className="sticky top-16 z-30 py-5 bg-background/85 backdrop-blur-xl border-b border-border/70">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="mr-1 hidden items-center gap-2 text-sm font-semibold text-muted-foreground md:flex">
+                <SlidersHorizontal className="h-4 w-4 text-primary" />
+                Filter
+              </div>
               {categories.map((category) => (
                 <Button
                   key={category.id}
@@ -299,17 +347,17 @@ const Portfolio = () => {
         </section>
 
         {/* Portfolio Grid */}
-        <section className="py-20">
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {filteredProjects.map((project) => (
-                <Card key={project.id} className="overflow-hidden border-0 shadow-2xl group">
+                <Card key={project.id} className="overflow-hidden border border-border/70 shadow-xl group bg-card">
                   {/* Project Image */}
                   <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    <ProjectVisual
+                      variant={project.visual}
+                      title={`${project.title} project visual`}
+                      className="transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="flex space-x-3">
@@ -349,6 +397,8 @@ const Portfolio = () => {
                     </CardHeader>
 
                     <CardContent className="p-0 space-y-6">
+                      <BeforeAfterComparison className="rounded-xl overflow-hidden" title={`${project.title} before and after comparison`} />
+
                       {/* Project Stats */}
                       <div className="grid grid-cols-3 gap-4 p-4 bg-secondary/30 rounded-lg">
                         <div className="text-center">
@@ -377,7 +427,7 @@ const Portfolio = () => {
                         <div className="grid grid-cols-2 gap-2">
                           {project.results.map((result, idx) => (
                             <div key={idx} className="flex items-center text-sm">
-                              <div className="w-2 h-2 bg-success rounded-full mr-2 flex-shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-success mr-2 flex-shrink-0" />
                               <span className="text-muted-foreground">{result}</span>
                             </div>
                           ))}

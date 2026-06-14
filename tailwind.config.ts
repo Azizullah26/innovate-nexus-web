@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -71,36 +72,75 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": {
-            opacity: "1",
-          },
-          "50%": {
-            opacity: "0.7",
-          },
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.7" },
         },
         "infinite-scroll": {
-          "0%": {
-            transform: "translateX(0)",
-          },
-          "100%": {
-            transform: "translateX(-50%)",
-          },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "33%": { transform: "translateY(-16px) rotate(2deg)" },
+          "66%": { transform: "translateY(-8px) rotate(-2deg)" },
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-24px)" },
+        },
+        "float-x": {
+          "0%, 100%": { transform: "translateX(0px) translateY(0px)" },
+          "25%": { transform: "translateX(8px) translateY(-12px)" },
+          "75%": { transform: "translateX(-8px) translateY(6px)" },
+        },
+        "morph": {
+          "0%, 100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+          "50%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" },
+        },
+        "shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "spin-reverse": {
+          from: { transform: "rotate(360deg)" },
+          to: { transform: "rotate(0deg)" },
+        },
+        "gradient-x": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "beam": {
+          "0%": { opacity: "0", transform: "scaleX(0) translateX(-100%)" },
+          "50%": { opacity: "1", transform: "scaleX(1) translateX(0%)" },
+          "100%": { opacity: "0", transform: "scaleX(1) translateX(100%)" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(0.8)", opacity: "1" },
+          "100%": { transform: "scale(2.2)", opacity: "0" },
+        },
+        "ticker-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "count-up": {
+          "from": { opacity: "0", transform: "translateY(20px)" },
+          "to": { opacity: "1", transform: "translateY(0)" },
+        },
+        "draw-line": {
+          "from": { strokeDashoffset: "1000" },
+          "to": { strokeDashoffset: "0" },
         },
       },
       animation: {
@@ -110,8 +150,21 @@ export default {
         "slide-up": "slideUp 0.8s ease-out forwards",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "infinite-scroll": "infinite-scroll 60s linear infinite",
+        "float": "float 5s ease-in-out infinite",
+        "float-slow": "float-slow 7s ease-in-out infinite",
+        "float-x": "float-x 8s ease-in-out infinite",
+        "morph": "morph 8s ease-in-out infinite",
+        "shimmer": "shimmer 2.5s linear infinite",
+        "spin-slow": "spin-slow 12s linear infinite",
+        "spin-reverse": "spin-reverse 16s linear infinite",
+        "gradient-x": "gradient-x 4s ease infinite",
+        "beam": "beam 3s ease-in-out infinite",
+        "pulse-ring": "pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "ticker-left": "ticker-left 40s linear infinite",
+        "count-up": "count-up 0.6s ease-out forwards",
+        "draw-line": "draw-line 2s ease-out forwards",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

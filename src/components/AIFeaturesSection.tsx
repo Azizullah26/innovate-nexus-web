@@ -1,149 +1,266 @@
-import { 
-  Wand2, 
-  Mic, 
-  Image, 
-  Search, 
-  MapPin, 
-  Sparkles, 
-  Brain, 
-  MessageSquare,
-  Video,
-  Ratio,
-  ScanSearch,
-  Zap,
-  PlaySquare,
-  AudioLines,
-  Lightbulb,
-  Volume2
+import { useState } from "react";
+import {
+  Bot, Mic, Brain, Zap, Globe, Shield, BarChart3, Code2,
+  MessageSquare, Cpu, Eye, Workflow, Database, CloudCog, Smartphone, Wand2
 } from "lucide-react";
-import heroImage from "@/assets/hero-background.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+type Category = "all" | "ai" | "dev" | "cloud" | "uae";
 
 const features = [
   {
-    icon: Wand2,
-    title: "Nano banana powered app",
-    description: "Add powerful photo editing to your app. Allow users to add objects, remove backgrounds, or change a photo's style just by typing."
-  },
-  {
-    icon: Mic,
-    title: "Create conversational voice apps",
-    description: "Use the Gemini Live API to give your app a voice and make your own conversational experiences."
-  },
-  {
-    icon: Image,
-    title: "Animate images with Veo",
-    description: "Bring images to life with Veo 2. Let users upload a product photo and turn it into a dynamic video ad, or animate a character's portrait."
-  },
-  {
-    icon: Search,
-    title: "Use Google Search data",
-    description: "Connect your app to Google Search results. Build an agent that can discuss current events, cite recent news, or fact-check information."
-  },
-  {
-    icon: MapPin,
-    title: "Use Google Maps data",
-    description: "Connect your app to real-time Google Maps data. Build an agent that can pull information about places, routes, or directions."
-  },
-  {
-    icon: Sparkles,
-    title: "Generate images with a prompt",
-    description: "Generate high-quality images from a text prompt. Create blog post heroes, concept art, or unique assets in your application."
-  },
-  {
-    icon: Brain,
-    title: "Gemini intelligence in your app",
-    description: "Embed Gemini in your app to complete all sorts of tasks - analyze content, make edits, and more"
+    icon: Bot,
+    title: "Custom AI Agents",
+    description: "Autonomous AI agents that handle complex, multi-step business tasks — from lead qualification to invoice processing — without human intervention.",
+    category: "ai" as Category,
+    accent: "#FF6B35",
+    size: "large",
   },
   {
     icon: MessageSquare,
-    title: "AI powered chatbot",
-    description: "Add a context-aware chatbot to your app. Give your users a support agent that remembers the conversation, perfect for multi-step bookings or troubleshooting."
+    title: "Bilingual AI Chatbots",
+    description: "Arabic & English chatbots deployed on WhatsApp, web, and mobile. Context-aware, multi-turn conversations that feel human.",
+    category: "ai" as Category,
+    accent: "#4DB6AC",
+    size: "normal",
   },
   {
-    icon: Video,
-    title: "Prompt based video generation",
-    description: "Add video generation to your creative app. Let users turn their blog posts, scripts, or product descriptions into short video clips."
+    icon: Eye,
+    title: "Computer Vision",
+    description: "Analyze images and video streams for quality control, document extraction, and visual automation.",
+    category: "ai" as Category,
+    accent: "#7C4DFF",
+    size: "normal",
   },
   {
-    icon: Ratio,
-    title: "Control image aspect ratios",
-    description: "Control the exact aspect of AI generated images. Build an app that creates perfect-fit images for vertical phone wallpapers or horizontal web banners."
+    icon: Brain,
+    title: "LLM Integration",
+    description: "Embed GPT-4, Claude, and Gemini into your workflows. RAG pipelines, fine-tuning, and prompt engineering.",
+    category: "ai" as Category,
+    accent: "#FF6B35",
+    size: "normal",
   },
   {
-    icon: ScanSearch,
-    title: "Analyze images",
-    description: "Enable your app to see and understand images. Allow users to upload a photo of a receipt, a menu, or a chart to get instant data extraction, translations, or summaries."
+    icon: Mic,
+    title: "Voice AI",
+    description: "Speech-to-text and text-to-speech for Arabic and English. Real-time transcription, voice assistants, and IVR automation.",
+    category: "ai" as Category,
+    accent: "#F06292",
+    size: "normal",
   },
   {
-    icon: Zap,
-    title: "Fast AI responses",
-    description: "Add lightning-fast time responses to your app using 2.5 Flash-Lite. Perfect for instant auto-completes, or conversational agents that feel alive."
+    icon: BarChart3,
+    title: "Predictive Analytics",
+    description: "ML models that forecast demand, detect anomalies, and surface actionable insights from your business data.",
+    category: "ai" as Category,
+    accent: "#26A69A",
+    size: "large",
   },
   {
-    icon: PlaySquare,
-    title: "Video understanding",
-    description: "Help users find the key moments in long videos. Add a feature to analyze video content to instantly generate summaries, flashcards, or marketing highlights."
+    icon: Code2,
+    title: "Full-Stack Development",
+    description: "End-to-end web and mobile apps built with React, Next.js, React Native, Node.js, and Python. From MVP to enterprise scale.",
+    category: "dev" as Category,
+    accent: "#42A5F5",
+    size: "large",
   },
   {
-    icon: AudioLines,
-    title: "Transcribe audio",
-    description: "Add a feature to provide live, real-time transcription of any audio feed for your users."
+    icon: Smartphone,
+    title: "Mobile Apps",
+    description: "Cross-platform iOS & Android applications with React Native. App Store & Play Store publishing included.",
+    category: "dev" as Category,
+    accent: "#66BB6A",
+    size: "normal",
   },
   {
-    icon: Lightbulb,
-    title: "Think more when needed",
-    description: "Give your app's AI time to think. Enable 'Thinking Mode' to handle your users' most complex queries."
+    icon: Workflow,
+    title: "Process Automation",
+    description: "Eliminate repetitive tasks with RPA, workflow orchestration, and API integration across your business tools.",
+    category: "dev" as Category,
+    accent: "#FFA726",
+    size: "normal",
   },
   {
-    icon: Volume2,
-    title: "Generate speech",
-    description: "Give your app a voice. Add text-to-speech to read articles aloud, provide audio navigation, or create voice-based assistants for your users."
-  }
+    icon: Database,
+    title: "CRM & ERP Systems",
+    description: "Custom Odoo implementations and bespoke CRM/ERP solutions tailored to your operations and team workflows.",
+    category: "dev" as Category,
+    accent: "#AB47BC",
+    size: "normal",
+  },
+  {
+    icon: CloudCog,
+    title: "Cloud Infrastructure",
+    description: "Scalable AWS, GCP, and Azure architectures. CI/CD pipelines, containerisation with Docker & Kubernetes.",
+    category: "cloud" as Category,
+    accent: "#4DB6AC",
+    size: "large",
+  },
+  {
+    icon: Cpu,
+    title: "AI Model Serving",
+    description: "Deploy and manage ML models at scale. GPU-optimised inference, model versioning, and monitoring dashboards.",
+    category: "cloud" as Category,
+    accent: "#FF6B35",
+    size: "normal",
+  },
+  {
+    icon: Shield,
+    title: "UAE PASS Integration",
+    description: "Seamlessly verify user identities using UAE's national digital identity platform. Fully compliant with TDRA standards.",
+    category: "uae" as Category,
+    accent: "#4DB6AC",
+    size: "large",
+  },
+  {
+    icon: Globe,
+    title: "UAE Government APIs",
+    description: "Integration with UAE government portals — DED, MOHRE, ADDA, and other federal/emirate-level systems.",
+    category: "uae" as Category,
+    accent: "#FF6B35",
+    size: "normal",
+  },
+  {
+    icon: Wand2,
+    title: "Generative AI Apps",
+    description: "Build content generators, image tools, and creative AI products powered by the latest foundation models.",
+    category: "ai" as Category,
+    accent: "#E91E63",
+    size: "normal",
+  },
+  {
+    icon: BarChart3,
+    title: "Data Engineering",
+    description: "ETL pipelines, data warehouses, and real-time streaming with Apache Kafka, Spark, and BigQuery.",
+    category: "cloud" as Category,
+    accent: "#26C6DA",
+    size: "normal",
+  },
 ];
 
 const AIFeaturesSection = () => {
-  return (
-    <section className="relative py-20 overflow-hidden">
-      {/* White Background */}
-      <div className="absolute inset-0 z-0 bg-white" />
+  const [active, setActive] = useState<Category>("all");
+  const { t } = useLanguage();
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-            Supercharge your apps with AI
+  const tabs: { id: Category; labelKey: string; emoji: string }[] = [
+    { id: "all",   labelKey: "ai.tab.all",   emoji: "⚡" },
+    { id: "ai",    labelKey: "ai.tab.ai",    emoji: "🤖" },
+    { id: "dev",   labelKey: "ai.tab.dev",   emoji: "💻" },
+    { id: "cloud", labelKey: "ai.tab.cloud", emoji: "☁️" },
+    { id: "uae",   labelKey: "ai.tab.uae",   emoji: "🇦🇪" },
+  ];
+
+  const visible = active === "all" ? features : features.filter((f) => f.category === active);
+
+  return (
+    <section className="relative py-16 md:py-24 overflow-hidden bg-foreground">
+
+      {/* Dark dot grid overlay */}
+      <div className="absolute inset-0 dot-bg-dark pointer-events-none opacity-100" />
+
+      {/* Ambient glow blobs */}
+      <div className="absolute top-0 left-1/4 w-[28rem] h-[28rem] rounded-full bg-primary/12 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[22rem] h-[22rem] rounded-full bg-secondary/10 blur-[80px] pointer-events-none" />
+
+      <div className="relative container mx-auto px-4 lg:px-8">
+
+        {/* ── Section Header ── */}
+        <div className="text-center mb-8 md:mb-12 reveal">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-medium mb-6">
+            🤖 {t("ai.badge")}
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            {t("ai.heading1")}{" "}
+            <span className="gradient-text-animated">{t("ai.heading2")}</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Integrate powerful AI capabilities into your applications with our cutting-edge solutions
+          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+            {t("ai.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => {
+        {/* ── Category Tabs — horizontal scroll on mobile ── */}
+        <div className="scroll-x mb-8 md:mb-12 reveal -mx-4 px-4">
+          <div className="flex gap-2 w-max md:w-auto md:flex-wrap md:justify-center mx-auto">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActive(tab.id)}
+                className={[
+                  "flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border whitespace-nowrap flex-shrink-0",
+                  active === tab.id
+                    ? "bg-primary text-white border-primary shadow-[0_0_24px_-4px_hsl(21_100%_50%/0.6)]"
+                    : "bg-white/5 text-white/65 border-white/10 hover:bg-white/10 hover:text-white/90 hover:border-white/20",
+                ].join(" ")}
+              >
+                <span>{tab.emoji}</span>
+                {t(tab.labelKey)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Bento Grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-auto">
+          {visible.map((feature, index) => {
             const Icon = feature.icon;
+            const isLarge = feature.size === "large";
             return (
               <div
-                key={index}
-                className="group relative overflow-hidden rounded-xl bg-white/95 backdrop-blur-lg border-2 border-[hsl(21_100%_50%)]/40 p-6 transition-all duration-500 hover:bg-white hover:-translate-y-2 hover:border-[hsl(21_100%_50%)] hover:shadow-[0_20px_50px_-12px_hsl(21_100%_50%/0.55)] hover:scale-[1.02]"
+                key={`${active}-${index}`}
+                className={[
+                  "bento-card group p-6 cursor-default animate-fade-in",
+                  isLarge ? "sm:col-span-2" : "",
+                ].join(" ")}
+                style={{
+                  animationDelay: `${index * 55}ms`,
+                  animationFillMode: "both",
+                }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(21_100%_50%)]/0 via-[hsl(21_100%_50%)]/0 to-[hsl(21_100%_50%)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[hsl(21_100%_50%)]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-[hsl(21_100%_50%)]/15 border border-[hsl(21_100%_50%)]/30 flex items-center justify-center group-hover:bg-[hsl(21_100%_50%)] group-hover:border-[hsl(21_100%_50%)] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                      <Icon className="h-6 w-6 text-[hsl(21_100%_50%)] group-hover:text-white transition-colors duration-500" />
-                    </div>
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2 text-gray-900 group-hover:text-[hsl(21_100%_50%)] transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
+                {/* Icon */}
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 flex-shrink-0"
+                  style={{ background: `${feature.accent}22`, border: `1px solid ${feature.accent}44` }}
+                >
+                  <Icon style={{ color: feature.accent, width: 20, height: 20 }} />
                 </div>
+
+                {/* Text */}
+                <h3
+                  className="font-semibold text-white text-base mb-2 transition-colors duration-300 group-hover:text-[var(--accent-col)]"
+                  style={{ "--accent-col": feature.accent } as React.CSSProperties}
+                >
+                  {feature.title}
+                </h3>
+                <p className="text-white/55 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+
+                {/* Subtle accent line on hover */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-[1.25rem]"
+                  style={{ background: `linear-gradient(90deg, ${feature.accent}, transparent)` }}
+                />
               </div>
             );
           })}
         </div>
+
+        {/* ── Bottom CTA Strip ── */}
+        <div className="mt-10 md:mt-16 reveal">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-5 md:p-7 rounded-2xl border border-white/10 backdrop-blur-sm" style={{ background: "rgba(255,255,255,0.04)" }}>
+            <div>
+              <p className="text-white font-semibold text-base md:text-lg mb-1">{t("ai.cta.heading")}</p>
+              <p className="text-white/55 text-sm">{t("ai.cta.sub")}</p>
+            </div>
+            <a
+              href="/contact"
+              className="flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-xl font-semibold text-sm text-white primary-gradient hover:opacity-90 transition-opacity shadow-[0_4px_24px_-4px_hsl(21_100%_50%/0.5)] press-effect flex-shrink-0 w-full sm:w-auto justify-center"
+            >
+              {t("ai.cta.btn")}
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );

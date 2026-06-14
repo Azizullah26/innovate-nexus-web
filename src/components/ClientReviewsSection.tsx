@@ -1,8 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ClientReviewsSection = () => {
+  const { t } = useLanguage();
   const reviews = [
     {
       name: "Pierre Dubois",
@@ -142,10 +144,10 @@ const ClientReviewsSection = () => {
       <div className="container mx-auto px-4 lg:px-8 mb-12">
         <div className="text-center animate-fade-in reveal">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Trusted by Clients <span className="gradient-text">Worldwide</span>
+            {t('reviews.heading1')} <span className="gradient-text">{t('reviews.heading2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            From Europe to the Middle East, businesses trust us to deliver exceptional digital solutions
+            {t('reviews.subtitle')}
           </p>
         </div>
       </div>
@@ -223,22 +225,17 @@ const ClientReviewsSection = () => {
       {/* Trust Indicators */}
       <div className="container mx-auto px-4 lg:px-8 mt-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">150+</div>
-            <p className="text-muted-foreground">Projects Delivered</p>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">40+</div>
-            <p className="text-muted-foreground">Global Clients</p>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">15+</div>
-            <p className="text-muted-foreground">Countries Served</p>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">98%</div>
-            <p className="text-muted-foreground">Client Satisfaction</p>
-          </div>
+          {[
+            { value: "150+", labelKey: "reviews.stat.projects" },
+            { value: "40+",  labelKey: "reviews.stat.clients" },
+            { value: "15+",  labelKey: "reviews.stat.countries" },
+            { value: "98%",  labelKey: "reviews.stat.satisfaction" },
+          ].map((stat, i) => (
+            <div key={i}>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+              <p className="text-muted-foreground">{t(stat.labelKey)}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
